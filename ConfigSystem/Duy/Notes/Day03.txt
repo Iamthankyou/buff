@@ -17,7 +17,7 @@
 + Hệ chuyên gia (ES):
 	Ví dụ: Một người không biết tri thức về thuế có thể sử dụng hệ ES cấp chuyên gia khi gặp các vấn đề liên quan đến thuế
 + Hệ truyền thông và cộng tác (CCS):
-	Ví dụ: Diễn đàn, stackoverflow
+	Ví dụ: Diễn đàn stackoverflow các lập trình viên trao đổi về lỗi khi lập trình
 + Hệ thống tự động văn phòng (OAS):
 	Ví dụ: Lập lịch làm việc nhân viên
 
