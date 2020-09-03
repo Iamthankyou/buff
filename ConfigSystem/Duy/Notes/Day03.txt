@@ -21,3 +21,32 @@
 + Hệ thống tự động văn phòng (OAS):
 	Ví dụ: Lập lịch làm việc nhân viên
 
+============================== LÀM LẠI
+
+* Phân loại hệ thống thông tin, căn cứ vào chức năng, nhiệm vụ của hệ thống có 7 loại sau đây:
+
+Hệ thống quản lý sinh viên
+
++ Hệ thống xử lý giao dịch (TPS - Transaction Processing System): 
+	Là một HTTT có chức năng thu thập và xử lý các giao dịch, nghiệp vụ. 
+	Ví dụ: Sinh viên đăng ký học phần, hủy học phần theo kỳ.
++ Hệ thống thông tin quản lý: (MIS - Management Information System):
+	Là một HTTT cung cấp thông tin cho việc cáo cáo hướng quản lý dựa trên việc xử lý giao dịch và các hoạt động tổ chức.
+	Ví dụ: Tổng hợp danh sách sinh viên theo từng lớp, theo xếp loại, báo cáo kết quả học tập chung của sinh viên.
++ Hệ thống hỗ trợ quyết định (DSS - Decision Support System): 
+	Là một HTTT vừa có thể trợ giúp xác định các thời cơ ra quyết định, vừa có thể cung cấp thông tin để trợ giúp việc ra quyết định.
+	Ví dụ: Quyết định thời khóa biểu tối ưu cho thầy cô và sinh viên.
++ Hệ thống thông tin điều hành: (ESS - Excutive Support System):
+	Là một hệ thống hỗ trợ nhu cầu lập kế hoạch và đánh giá của các nhà quản lý điều hành.
+	Ví dụ: Dựa vào kết quả sinh viên tốt nghiệp hệ thống xác định điểm mạnh, điểm yếu trong quá trình học tập của sinh viên từ đó lên kế hoạch học tập phù hợp, tối ưu hơn cho kỳ sau.
+	Ví dụ: Dựa vào tình hình học tập hệ thống đưa ra đánh giá kết quả tốt nghiệp của sinh viên.
++ Hệ thống chuyên gia (Expert System): 
+	Là một HTTT thu thập tri thức chuyên môn của các chuyên gia ròi mô phòng tri thức đó nhằm đem l ại lợi ích cho người sử dụng bình thường.
+	Ví dụ: Chatbot hỏi đáp trực tiếp các vấn đề về thông tin tuyển sinh, quá trình học tập, nội quy của nhà trường (chatbot chuyên gia lĩnh vực của phòng đào tạo)
++ Hệ thống truyền thông cộng tác (Comunication and Collaboration System):
+	Là một HTTT làm tăng hiệu quả giao tiếp giữa các nhân viên, đối tác, khách hàng và nhà cung cấp để củng cố khả năng cộng tác giữa họ. 
+	Ví dụ: Diễn đàn hỏi đáp dành cho sinh viên.
++ Hệ thống tự động văn phòng: (Office Automation 
+System): 
+	Là một HTTT hỗ trợ các hoạt động nghiệp vụ văn phòng nhằm cải thiện luồng công việc giữa các nhân viên.
+	Ví dụ: Hệ thống tự động cấp giấy Xác nhận sinh viên online.
