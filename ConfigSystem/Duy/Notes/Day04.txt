@@ -1,0 +1,27 @@
+* Một quy trình phát triển hệ thống đơn giản bao gồm 4 giai đoạn
+	+ Khởi đầu hệ thống: Lập kế hoạch ban đầu cho một dự án xác định phạm vi
+	+ Phân tích hệ thống: Phát triển giải pháp, nghiên cứu tính khả thi 
+	+ Thiết kế hệ thống:
+	+ Cài đặt hệ thống: (Implement): là giai đoạn xây dựng, cài đặt và kiểm thử triển khai trên một hệ thống.
+
+===> Chương 1:
+	Khái niệm cơ bản về HTTT và quy trình phát triển hệ thống
+	Phân biệt các loại HTTT
+	Nắm rõ các giai đoạn phát triển cơ bản của hệ thống thông tin
+
+CHƯƠNG 2: PHÁT TRIỂN HỆ THỐNG THÔNG TIN
+2.1.1 Khái niệm quy trình phát triển hệ thống:
+	* Quy trình phát triển hệ thống là tập hợp các hoạt động, phương pháp, thực nghiệm, kết quả và các công cụ tự động hóa mà cấc nhân sự sử dụng để phát triển và cải thiện không ngừng hệ thống thông tin và phần mềm.
+	* Một quy trình phù hợp để phát triển hệ thống phải bảo đảm:
+		+ Hiệu quả để cho phép nhà quản lý điểu chuyển nguồn lực giữa các dự án.
+		+ Tài liệu nhất quán nhằm giảm chi phí thời gian sống để bảo trì hệ thống về sau
+		+ Chất lượng nhất quán xuyên suốt các dự án
+2.1.2. Mô hình quản lý quy trình CMM
+	CMM là một framework chuẩn hóa để đánh giá mức độ hoàn thiện của các quy trình phát triển hệ thống thông tin, các quy trình quản lý và các sản phẩm của một tổ chức. Mục đích của CMM là để hỗ trợ cho các tổ chức cải thiện tính hoàn chỉnh của các quy trình phát triển hệ thống. Nó bao gồm 5 mức độ hoàn hiện:
+		Mức 1: Khởi đầu
+		Mức 2: Có thể lặp lại
+		Mức 3: Được định rõ
+		Mức 4: Được quản lý
+		Mức 5: Tối ưu
+2.1.3. Phương pháp luận phát triển hệ thống là một quy tình phát triển chuẩn hóa xác định một tập các hoạt động, phương pháp, thực nghiệm, kết quả và các công cụ tự động hóa...
+

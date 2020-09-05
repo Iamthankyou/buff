@@ -1,27 +1,4 @@
-* Hệ thống thông tin: khái niệm nhớ ghi nguồn đã xác thực.
 
-* Phân loại hệ thống thông tin căn cứ váo chức năng, nhiệm vụ của hệ thống, có 7 loại sau đây:
-(Usage of Information)
-+ Hệ thống xử lý giao dịch (TPS): Transaction Processing System
-	Là một hệ thống thông tin có chức năng thu thập và xử lý dữ liệu về các giao dịch nghiệp vụ.
-	Ví dụ: Có thể hiểu nó là một hệ thống máy tính để thực hiện, ghi nhận các giao dịch hàng ngày cần thiết cho hoạt động
-+ Hệ thống thông tin quản lý (MIS): 
-	Là một hệ thốn thông tin cung cấp thông tin cho việc báo cáo hướng quản lý dựa trên việc xử lý giao dịch và các hoạt động của tổ chức.
-	Hệ thống này trợ giúp các hoạt động của tổ chức như lập kế hoạch, kiểm tra thực hiện, tổng hợp và làm báo cáo, làm các quyết định quản lý trên cơ sở các quy trình thủ tục cho trước.
-+ Hệ thống hỗ trợ quyết định (DSS):
-	
-	Ví dụ: hệ thống GPS quyết định gợi ý tuyến đường di chuyển tối ưu nhất giữa hai địa điểm
-+ Hệ thống thông tin điều hành (ESS):
-	Là một hệ thống thông tin hỗ trợ nhu cầu lập kết hoạch và đánh giá của các nhà quản lý điều hành.
-	Ví dụ: Hệ thống đưa ra phương hướng bán hàng trong tuần tới của một siêu thị dựa vào thông tin đầu vào
-+ Hệ chuyên gia (ES):
-	Ví dụ: Một người không biết tri thức về thuế có thể sử dụng hệ ES cấp chuyên gia khi gặp các vấn đề liên quan đến thuế
-+ Hệ truyền thông và cộng tác (CCS):
-	Ví dụ: Diễn đàn stackoverflow các lập trình viên trao đổi về lỗi khi lập trình
-+ Hệ thống tự động văn phòng (OAS):
-	Ví dụ: Lập lịch làm việc nhân viên
-
-============================== LÀM LẠI
 
 * Phân loại hệ thống thông tin, căn cứ vào chức năng, nhiệm vụ của hệ thống có 7 loại sau đây:
 
