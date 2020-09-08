@@ -1,0 +1,5 @@
+D:\buff\C#\SourceCode\Ex1\Ex1\obj\Debug\Ex1.csprojAssemblyReference.cache
+D:\buff\C#\SourceCode\Ex1\Ex1\obj\Debug\Ex1.Form1.resources
+D:\buff\C#\SourceCode\Ex1\Ex1\obj\Debug\Ex1.Properties.Resources.resources
+D:\buff\C#\SourceCode\Ex1\Ex1\obj\Debug\Ex1.csproj.GenerateResource.cache
+D:\buff\C#\SourceCode\Ex1\Ex1\obj\Debug\Ex1.csproj.CoreCompileInputs.cache
