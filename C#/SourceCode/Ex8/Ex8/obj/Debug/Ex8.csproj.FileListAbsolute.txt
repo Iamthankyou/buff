@@ -1,0 +1,10 @@
+D:\buff\C#\SourceCode\Ex8\Ex8\bin\Debug\Ex8.exe.config
+D:\buff\C#\SourceCode\Ex8\Ex8\bin\Debug\Ex8.exe
+D:\buff\C#\SourceCode\Ex8\Ex8\bin\Debug\Ex8.pdb
+D:\buff\C#\SourceCode\Ex8\Ex8\obj\Debug\Ex8.csprojAssemblyReference.cache
+D:\buff\C#\SourceCode\Ex8\Ex8\obj\Debug\Ex8.Form1.resources
+D:\buff\C#\SourceCode\Ex8\Ex8\obj\Debug\Ex8.Properties.Resources.resources
+D:\buff\C#\SourceCode\Ex8\Ex8\obj\Debug\Ex8.csproj.GenerateResource.cache
+D:\buff\C#\SourceCode\Ex8\Ex8\obj\Debug\Ex8.csproj.CoreCompileInputs.cache
+D:\buff\C#\SourceCode\Ex8\Ex8\obj\Debug\Ex8.exe
+D:\buff\C#\SourceCode\Ex8\Ex8\obj\Debug\Ex8.pdb
