@@ -1,16 +1,24 @@
-def taylor(x,n):
-    res=0
-    i=0
-    for _ in range(n):
-        c = (((-1) ** n) / ((2 * n) + 1)) * (x ** ((2 * n) + 1))
-        n += 1
-        res += c
-        yield res
+import collections
+n = int(input())
+arr = list(map(int,input().split()))
+res = 0
 
-if __name__ == "__main__":
-    res = 0
-    i=0
-    for j in taylor(i,1000):
-        res = j*4
-        i+=1
+arr.sort()
+dq = collections.deque()
+
+for i in arr:
+    if (len(dq)>1):
+        dq.append(i)
+        if (dq[0]+dq[1]<=i):
+            dq.popleft()
+    else:
+        dq.append(i)
+
+    res = max(res,len(dq))
+
+if (res>2):
     print(res)
+else:
+    print('Khong the tao ra day thoa man')
+
+
