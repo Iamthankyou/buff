@@ -1,24 +1,21 @@
-import collections
 n = int(input())
 arr = list(map(int,input().split()))
+L = [int]*n
+R = [int]*n
 res = 0
 
-arr.sort()
-dq = collections.deque()
-
-for i in arr:
-    if (len(dq)>1):
-        dq.append(i)
-        if (dq[0]+dq[1]<=i):
-            dq.popleft()
-    else:
-        dq.append(i)
-
-    res = max(res,len(dq))
-
-if (res>2):
-    print(res)
-else:
-    print('Khong the tao ra day thoa man')
+L[0] = arr[0]
+R[n-1] = arr[-1]
 
 
+for i in range(1,n):
+    L[i] = max(L[i-1],arr[i])
+
+for i in range(n-2,-1,-1):
+    R[i] = max(R[i+1],arr[i])
+
+for i in range(1,n-1):
+    if (arr[i] < min(L[i-1],R[i+1])):
+        res+= min(L[i-1],R[i+1]) - arr[i]
+
+print(res)
