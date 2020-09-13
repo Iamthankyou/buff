@@ -1,0 +1,36 @@
+* Xây dựng mạng lưới hỗ trợ học tập UTC
+
++ Mô tả hệ thống:
+- Định danh bằng email sinh viên nhà trường
+- Chia sẻ, trao đổi tài liệu học tập: giáo trình, đề thi các năm
+- Liên kết các CLB thành các group, topic riêng
+- Các CLB có thể mở các lớp học trực tuyến, ví dụ: CLB khoa CNTT mở lớp Dạy lập trình C cơ bản cho thành viên của mình
+
++ Những việc cần phải làm:
+1. Phân tích
+2. Thiết kế
+3. Thực hiện
+
+- Khảo sát hiện trạng, nhu cầu:
+	+ Các nguồn cần điều tra, thăm dò:
+		- Sinh viên UTC
+	+ Phương pháp điều tra, thăm dò:
+		- Nghiên cứu nhu cầu sinh viên qua các group facebook
+		- Phỏng vấn sinh viên
+		- Quan sát thực tế
+		- Phiếu điều tra
+	+ Quy trình điều tra phải được tiến hành từ trên xuống và lặp đi lặp lại.
+	
+	+ Phân loại, biên tập các thông tin đã điều tra
+- Xác lập và khởi đầu dự án:
+	+ Phạm vi, các hạn chế:
+		Phạm vi: trường ĐH GTVT
+		Hạn chế: nhân lực, thiết bị, kỹ thuật, tài chính
+	+ Mục tiêu 
+	+ Phác họa giải pháp và cân nhắc tính khả thi
+	+ Lập kế hoạch và triển khai dự án:
+		Dự trù thiết bị, kinh phí
+		Tổ chức nhóm làm việc
+		
+	
+
