@@ -1,0 +1,10 @@
+C:\Users\Admin\source\repos\EcClass01\EcClass01\bin\Debug\EcClass01.exe.config
+C:\Users\Admin\source\repos\EcClass01\EcClass01\bin\Debug\EcClass01.exe
+C:\Users\Admin\source\repos\EcClass01\EcClass01\bin\Debug\EcClass01.pdb
+C:\Users\Admin\source\repos\EcClass01\EcClass01\obj\Debug\EcClass01.csprojAssemblyReference.cache
+C:\Users\Admin\source\repos\EcClass01\EcClass01\obj\Debug\EcClass01.Form1.resources
+C:\Users\Admin\source\repos\EcClass01\EcClass01\obj\Debug\EcClass01.Properties.Resources.resources
+C:\Users\Admin\source\repos\EcClass01\EcClass01\obj\Debug\EcClass01.csproj.GenerateResource.cache
+C:\Users\Admin\source\repos\EcClass01\EcClass01\obj\Debug\EcClass01.csproj.CoreCompileInputs.cache
+C:\Users\Admin\source\repos\EcClass01\EcClass01\obj\Debug\EcClass01.exe
+C:\Users\Admin\source\repos\EcClass01\EcClass01\obj\Debug\EcClass01.pdb
