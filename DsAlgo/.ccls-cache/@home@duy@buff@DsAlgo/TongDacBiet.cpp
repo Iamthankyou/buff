@@ -13,8 +13,8 @@ int main(){
 
   cin >> n;
   for (int i=2; i*i<=2*n; i++){
-    if ((2*n)%i==0){
-      v.push_back(make_pair(n/i + (1-i)/2,n/i+(1-i)/2 + i-1));
+    if ((2*n)%i==0 && (2*n/i-i+1)%2==0){
+        v.push_back(make_pair((2*n/i-i+1)/2,(2*n/i-i+1)/2 + i-1));
     }
   }
 
