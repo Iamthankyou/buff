@@ -1,16 +1,14 @@
-def taylor(x,n):
-    res=0
-    i=0
-    for _ in range(n):
-        c = (((-1) ** n) / ((2 * n) + 1)) * (x ** ((2 * n) + 1))
-        n += 1
-        res += c
-        yield res
+import math
+n = int(input())
+list = []
+i=2
 
-if __name__ == "__main__":
-    res = 0
-    i=0
-    for j in taylor(i,1000):
-        res = j*4
-        i+=1
-    print(res)
+while i*i<=2*n:
+    x = 2*n/i-i+1
+    if ((2*n)%i==0 and (x%2)==0):
+        list.append((x/2,x/2+i-1))
+    i+=1
+
+print(len(list))
+for i in list:
+    print(int(i[0]),int(i[1]))

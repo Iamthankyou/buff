@@ -1,0 +1,14 @@
+Mô hình OSI gồm 7 tầng:
+	- Tầng vật lý
+	- Tầng liên kết dữ liệu
+	- tầng mạng
+	- Tầng giao vận
+	- Tầng phiên
+	- Tầng trình diễn
+	- Tầng ứng dụng
+
+* CHƯƠNG: TẦNG ỨNG DỤNG
+
+TCP bảo đảm việc truyền dữ liệu một cách chính xác nhưng không đảm bảo về tốc độ truyền và độ trễ.
+
+UDP không cung cấp dịch vụ truyền tin cậy.

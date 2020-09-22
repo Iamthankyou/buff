@@ -121,7 +121,7 @@ public class MClosestTriangle {
 				double xa = sc.nextDouble();
 				double ya = sc.nextDouble();
 				double xb = sc.nextDouble();
-				double yb = sc.nextDouble();
+				double yb = sc.nextDouble();	
 				double xc = sc.nextDouble();
 				double yc = sc.nextDouble();
 				double xm = sc.nextDouble();
