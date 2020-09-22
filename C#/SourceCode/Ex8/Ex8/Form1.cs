@@ -50,22 +50,22 @@ namespace Ex8
 
         private void checkBoxEffectBold_CheckedChanged(object sender, EventArgs e)
         {
-            textBox.Font = new Font(textBox.Font, FontStyle.Bold);
+            textBox.Font = new Font(textBox.Font, textBox.Font.Style ^ FontStyle.Bold);
         }
 
         private void checkBoxItalic_CheckedChanged(object sender, EventArgs e)
         {
-            textBox.Font = new Font(textBox.Font, FontStyle.Italic);
+            textBox.Font = new Font(textBox.Font, textBox.Font.Style ^ FontStyle.Italic);
         }
 
         private void checkBoxStrikeout_CheckedChanged(object sender, EventArgs e)
         {
-            textBox.Font = new Font(textBox.Font, FontStyle.Strikeout);
+            textBox.Font = new Font(textBox.Font, textBox.Font.Style ^ FontStyle.Strikeout);
         }
 
         private void checkBox4_CheckedChanged(object sender, EventArgs e)
         {
-            textBox.Font = new Font(textBox.Font, FontStyle.Underline);
+            textBox.Font = new Font(textBox.Font, textBox.Font.Style ^ FontStyle.Underline);
         }
 
         private void radioButtonFontRed_CheckedChanged(object sender, EventArgs e)

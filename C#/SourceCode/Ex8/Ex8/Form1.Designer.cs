@@ -182,6 +182,7 @@
             this.checkBoxEffectBold.Size = new System.Drawing.Size(51, 17);
             this.checkBoxEffectBold.TabIndex = 0;
             this.checkBoxEffectBold.Text = "Bold";
+            this.checkBoxEffectBold.UseMnemonic = false;
             this.checkBoxEffectBold.UseVisualStyleBackColor = true;
             this.checkBoxEffectBold.CheckedChanged += new System.EventHandler(this.checkBoxEffectBold_CheckedChanged);
             // 
