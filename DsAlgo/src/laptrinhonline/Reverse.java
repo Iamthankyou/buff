@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Reverse {
 	public static void main(String args[]) {
-		String s = "Em vừa chạy đâu à ?";
+		String s = "Đừng cố viết tại mình tự viết chương trình để nó nhắn ngược lại nên mới nhanh vậy đấy";
 		
 		String[] arr = s.split(" ");
 		
@@ -17,13 +17,13 @@ public class Reverse {
 //			arr[i+1] = tmp;
 //		}
 //		
-//		Collections.reverse(Arrays.asList(arr));
+		Collections.reverse(Arrays.asList(arr));
 		
-		for (int i=s.length()-1; i>=0; i--) {
-			System.out.print(s.charAt(i));
-		}
+//		for (int i=s.length()-1; i>=0; i--) {
+//			System.out.print(s.charAt(i));
+//		}
 		
-//		for (String i:arr)
-//			System.out.print(i+" ");
+		for (String i:arr)
+			System.out.print(i+" ");
 	}
 }
