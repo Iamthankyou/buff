@@ -5,14 +5,14 @@
 	Nhân viên kiểm soát đặt bàn, gọi món
 
 - Tổ chức thư mục:
-	TeaManagementSystem
-		Properties
-		References
-		DataAccessLayer
-		EntityFramework
-		Image
-		Model
-		UI
-		App.config [XML]
-		pagekages.config [XML]
-		Program.cs
+	- TeaManagementSystem
+		- Properties
+		- References
+		- DataAccessLayer
+		- EntityFramework
+		- Image
+		- Model
+		- UI
+		- App.config [XML]
+		- pagekages.config [XML]
+		- Program.cs
