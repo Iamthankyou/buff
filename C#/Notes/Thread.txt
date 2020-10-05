@@ -1,0 +1,12 @@
+ThreadStart ts = new ThreadStart(void);
+Thread thrd = new Thread(ts);
+thrd.IsBackground = true;
+thrd.start();
+
+init(){
+	Control.CheckForIllegalCrossThreadCalls = false;
+}
+
+new Thread(()=>{
+	void
+}){IsBackground = true}.Start()
