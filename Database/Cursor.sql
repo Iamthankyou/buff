@@ -1,0 +1,30 @@
+use BT2
+
+SELECT * FROM BT2.dbo.DIEM
+
+ALTER TABLE DIEM DROP COLUMN XL
+
+SELECT * FROM DIEM
+
+-- Cursor auto update avg DIEM
+DECLARE cs CURSOR FOR SELECT MAHS,TOAN,LY,HOA,VAN FROM DIEM
+OPEN cs 
+DECLARE @mahs nvarchar(5),@toan float,@ly float, @hoa float, @van float
+FETCH NEXT FROM cs INTO @mahs,@toan,@ly,@hoa,@van
+WHILE (@@FETCH_STATUS=0)
+	BEGIN
+		print @mahs
+		FETCH NEXT FROM cs INTO @mahs,@toan,@ly,@hoa,@van
+	END
+CLOSE cs
+DEALLOCATE cs
+
+SELECT * FROM DSHS
+
+ALTER TABLE DIEM ADD XL nvarchar(10)
+
+SELECT * FROM DIEM
+
+DECLARE cs CURSOR FOR SELECT MAHS,DTB FROM DIEM
+OPEN cs
+DECLARE @mahs

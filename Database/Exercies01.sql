@@ -200,6 +200,6 @@ SELECT * FROM xuatSac
 -- Cau 11
 CREATE VIEW topServer AS
 SELECT a.MAHS as 'Code',CONCAT(a.HO,' ',a.TEN) AS 'FullName',a.LOP AS 'class', (CASE WHEN a.NU=0 THEN 'Girl' ELSE 'Boy' END) as 'Sex', b.TOAN as 'Math', b.LY as 'Physical', b.HOA as 'Chemistry', b.VAN 'Literture',b.DTB,b.DTN FROM DSHS a INNER JOIN DIEM b ON a.MAHS = b.MAHS WHERE DTB = (SELECT MAX(DTB) FROM DIEM)
-
+	
 
 
