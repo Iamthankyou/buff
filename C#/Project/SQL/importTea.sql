@@ -15,4 +15,6 @@ INSERT INTO Resources VALUES('000007','Hat sen tuoi', 100)
 INSERT INTO Resources VALUES('000008','Dua', 100)
 INSERT INTO Resources VALUES('000009','Du du',100)
 
- 
+SELECT * FROM Resources
+
+	 
