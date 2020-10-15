@@ -163,6 +163,101 @@ BEGIN
 END
 GO
 
+-- Show list DSHS code
+use BT2
+
+CREATE FUNCTION showList (@codeClass char(5)) RETURNS TABLE AS
+	RETURN (SELECT DSHS.HO,DSHS.TEN FROM DSHS INNER JOIN DIEM ON DSHS.MAHS = DIEM.MAHS INNER JOIN LOP ON LOP.LOP = DSHS.LOP WHERE 
+	(TOAN+LY+HOA+VAN)/4 >=8 AND LOP.LOP = @codeClass)
+
+-- START
+DROP FUNCTION getDTN
+DROP FUNCTION getDTB
+
+CREATE FUNCTION getDTN(@code nvarchar(5)) RETURNS FLOAT AS
+BEGIN
+	DECLARE @toan float, @ly float, @van float, @hoa float, @min float
+	SELECT @toan = TOAN, @ly = LY, @van = VAn, @hoa = HOA FROM DIEM WHERE @code = DIEM.MAHS
+	SET @min = @toan
+	IF (@min>@van)
+		SET @min = @van
+	IF (@min>@ly)
+		SET @min = @ly
+	IF (@min>@hoa)
+		SET @min = @hoa
+	RETURN @min
+END
+
+CREATE FUNCTION getDTB(@code nvarchar(5)) RETURNS FLOAT AS
+BEGIN
+	DECLARE @res float
+	SELECT @res = (TOAN+LY+HOA+VAN)/4 FROM DIEM WHERE @code = DIEM.MAHS
+	RETURN @res
+END
+
+CREATE FUNCTION getRank(@code nvarchar(5)) RETURNS nvarchar(10) AS
+BEGIN
+	DECLARE @res nvarchar(10)
+	DECLARE @dtb float
+	SET @dtb = dbo.getDTB(@code)
+	
+	IF (@dtb>=8)
+		SET @res = 'Gioi'
+	ELSE IF (@dtb>=6)
+		SET @res = 'Kha'
+	ELSE
+		SET @res = 'Trung Binh'
+
+	RETURN @res
+END
+
+CREATE FUNCTION getSex(@code nvarchar(5)) RETURNS nvarchar(10) AS
+BEGIN
+	DECLARE @x bit
+	SELECT @x = NU FROM DSHS WHERE @code = DSHS.MAHS
+	DECLARE @res nvarchar(10)
+
+	IF (@x=0)
+		SET @res = 'Nu'
+	ELSE 
+		SET @res = 'Nam'
+
+	RETURN @res
+END
+
+DROP FUNCTION showList3
+
+CREATE FUNCTION showList3(@codeClass nvarchar(4)) RETURNS TABLE AS RETURN(
+		SELECT dbo.getDTN(DSHS.MAHS) as 'DTN', dbo.getDTB(DSHS.MAHS) as 'DTB', dbo.getRank(DSHS.MAHS) as 'RANK' FROM DSHS WHERE @codeClass = DSHS.LOP
+	)
+
+DROP FUNCTION showList4
+
+CREATE FUNCTION showList4(@codeClass nvarchar(4)) RETURNS TABLE AS RETURN (
+	SELECT COUNT(DTN) AS 'Num',DTN as 'DTN' FROM dbo.showList3(@codeClass) GROUP BY DTN
+)
+
+CREATE FUNCTION showList5(@codeClass nvarchar(4)) RETURNS TABLE AS RETURN (
+	SELECT COUNT(DTB) AS 'Num',DTB as 'DTN' FROM dbo.showList3(@codeClass) GROUP BY DTB
+)
+
+CREATE FUNCTION showList6(@codeClass nvarchar(4)) RETURNS TABLE AS RETURN (
+	SELECT COUNT(RANK) AS 'Num',RANK as 'RANK' FROM dbo.showList3(@codeClass) GROUP BY RANK
+)
+
+
+SELECT * FROM dbo.showList4('10a1') 
+SELECT * FROM dbo.showList5('10a1') 
+SELECT * FROM dbo.showList6('10a1')
+
+SELECT * FROM dbo.showList6('10a1')
+
+CREATE FUNCTION showList2(@codeClass nvarchar(4)) RETURNS TABLE AS
+BEGIN
+	RETURN
+		(SELECT CONCAT(HO,' ',TEN) as 'FullName', dbo.getDTN(MAHS) as 'MinPoint', dbo.getDTB(MAHS) as 'AVGPoint', dbo.getSex(MAHS) as 'Sex', dbo.getRank(MAHS) as 'Rank' FROM DSHS WHERE LOP = @codeClass)
+END
+
 CREATE PROCEDURE updateDTN AS
 BEGIN
 	UPDATE DIEM 
