@@ -106,5 +106,101 @@ USE BT3
 1. Tạo View danh sách sinh viên, gồm các thông tin sau: Mã sinh viên, Họ sinh viên, Tên sinh
 viên, Học bổng.
 */
+CREATE VIEW sinhVien AS
+SELECT MaSV as 'Ma sinh vien', CONCAT(HoSV,' ',TenSV) as 'Ho va ten', HocBong as 'Hoc Bong' FROM DSSinhVien 
 
-SELECT * FROM DSSinhvien
+SELECT * FROM sinhVien
+
+/*
+2. Tạo view Liệt kê các sinh viên có học bổng từ 150,000 trở lên và sinh ở Hà Nội, gồm các
+thông tin: Họ tên sinh viên, Mã khoa, Nơi sinh, Học bổng
+*/
+
+CREATE VIEW sinhVien150HN AS
+SELECT MaSV as 'Ma sinh vien', CONCAT(HoSV,' ',TenSV) as 'Ho va ten', HocBong as 'Hoc Bong', DSSinhVien.MaKhoa as 'Ma Khoa', DMKhoa.MaKhoa as 'Ten Khoa' FROM DSSinhVien INNER JOIN DMKhoa ON DMKhoa.MaKhoa = DSSinhVien.MaKhoa WHERE HocBong>=150000 AND NoiSinh LIKE N'Hà Nội'
+
+SELECT * FROM sinhVien150HN
+
+
+/*
+3. Tạo view liệt kê những sinh viên nam của khoa Anh văn và khoa tin học, gồm các thông tin:
+Mã sinh viên, Họ tên sinh viên, tên khoa, Phái
+*/
+
+CREATE VIEW sinhVienAVTH as
+SELECT MaSV as 'Ma sinh vien', CONCAT(HoSV,' ',TenSV) as 'Ho va ten', DMKhoa.TenKhoa as 'Ten Khoa', Phai as 'Gioi tinh' FROM DSSinhVien INNER JOIN DMKhoa ON DMKHoa.MaKhoa = DSSinhVien.MaKhoa WHERE (TenKhoa LIKE N'Anh Văn') OR (TenKhoa LIKE N'Tin Học')
+
+SELECT * FROM sinhVienAVTH
+
+/*
+4. Tạo view gồm những sinh viên có tuổi từ 20 đến 25, thông tin gồm: Họ tên sinh viên, Tuổi, Tên
+khoa.
+*/
+
+CREATE VIEW SinhVien2025 AS
+SELECT CONCAT(HoSV,' ',TenSV) as 'Ho va ten', DATEDiFF(year,NgaySinh,GETDATE()) as 'Tuoi', DMKHoa.TenKhoa as 'Ten Khoa' FROM DSSinhVien INNER JOIN DMKhoa ON DMKhoa.MaKhoa = DSSinhVien.MaKhoa WHERE  DATEDiFF(year,NgaySinh,GETDATE())>=20 AND  DATEDiFF(year,NgaySinh,GETDATE())<=25
+
+SELECT * FROM SinhVien2025
+
+/*
+5. Tạo view cho biết thông tin về mức học bổng của các sinh viên, gồm: Mã sinh viên, Phái,
+Mã khoa, Mức học bổng. Trong đó, mức học bổng sẽ hiển thị là “Học bổng cao” nếu giá trị của
+field học bổng lớn hơn 500,000 và ngược lại hiển thị là “Mức trung bình”
+*/
+
+CREATE VIEW xepLoaiHocBong AS
+SELECT MaSV as 'Ma sinh vien', CONCAT(HoSV,' ',TenSV) as 'Ho va ten',Phai as 'Gioi tinh', (CASE WHEN HocBong>=500000 THEN 'Hoc bong cao' ELSE 'Muc trung binh' END) as 'Hoc Bong', DSSinhVien.MaKhoa as 'Ma Khoa' FROM DSSinhVien
+
+SELECT * FROM xepLoaiHocBong
+
+/*
+6. Tạo view đưa ra thông tin những sinh viên có học bổng lớn hơn bất kỳ học bổng của sinh viên
+học khóa anh văn
+*/
+
+CREATE VIEW sinhVienPreferAV as
+SELECT MaSV as 'Ma sinh vien', CONCAT(HoSV,' ',TenSV) as 'Ho va ten',Phai as 'Gioi tinh', DMKhoa.MaKhoa as 'Ma Khoa' FROM DSSinhVien INNER JOIN DMKhoa ON DMKhoa.MaKhoa = DSSinhVien.MaKhoa WHERE DMKhoa.MaKhoa NOT LIKE 'AV' AND HocBong > (SELECT MIN(HocBong) FROM DSSinhVien INNER JOIN DMKhoa ON DMKhoa.MaKhoa = DSSinhVien.MaKhoa WHERE DMKHoa.TenKhoa LIKE N'Anh Văn'
+)
+
+SELECT * FROM sinhVienPreferAV
+
+/*
+7. Tạo view đưa ra thông tin những sinh viên đạt điểm cao nhất trong từng môn.
+*/
+
+CREATE VIEW topServer AS
+SELECT DMMonHoc.TenMH as 'Ten mon hoc', CONCAT(DSSinhVien.HoSV,' ', DSSinhVien.TenSV) as 'Ho va ten', KetQua.Diem as 'Diem' FROM DMMonHoc INNER JOIN KetQua ON KetQua.MaMH = DMMonHoc.MaMH INNER JOIN DSSinhVien ON DSSinhVien.MaSV = KetQua.MaSV INNER JOIN (SELECT MAX(Diem) as 'Diem', (SELECT b.MaMH FROM DMMonHoc b WHERE b.MaMH = DMMonHoc.MaMH) as 'Ma mon hoc' FROM KetQua INNER JOIN DMMonHoc ON DMMonHoc.MaMH = KetQua.MaMH GROUP BY DMMonHoc.MaMH
+) as a ON a.[Ma mon hoc] = DMMonHoc.MaMH WHERE KetQua.Diem = a.Diem
+
+SELECT * FROM topServer
+
+/*
+8. Tạo view đưa ra những sinh viên chưa thi môn cơ sở dữ liệu.
+*/
+
+CREATE VIEW sinhVienChuaThiCSDL AS
+SELECT c.MaSV as 'Ma sinh vien' ,CONCAT(c.TenSV,' ',c.HoSV) as 'Ho va ten' FROM DSSinhVien c LEFT JOIN (SELECT b.MaSV FROM DSSinhVien b INNER JOIN KetQua On KetQua.MaSV = b.MaSV INNER JOIN DMMonHoc ON DMMonHoc.MaMH = KetQua.MaMH WHERE DMMonHoc.TenMH LIKE N'Cơ Sở Dữ Liệu'
+) as a ON a.MaSV = c.MaSV WHERE a.MaSV IS NULL
+
+SELECT * FROM sinhVienChuaThiCSDL
+
+-- Danh sách những học sinh đã học CSDL
+SELECT * FROM DSSinhVien INNER JOIN KetQua On KetQua.MaSV = DSSinhVien.MaSV INNER JOIN DMMonHoc ON DMMonHoc.MaMH = KetQua.MaMH WHERE DMMonHoc.TenMH LIKE N'Cơ Sở Dữ Liệu'
+
+/*
+9. Tạo view đưa ra thông tin những sinh viên không trượt môn nào.
+*/
+
+CREATE VIEW aquamon AS
+SELECT CONCAT(b.HoSV,' ',b.TenSV) as 'Ho va ten' FROM DSSinhVien b LEFT JOIN (SELECT c.MaSV FROM DSSinhVien c INNER JOIN KetQua ON KetQua.MaSV = c.MaSV WHERE KetQua.Diem <5
+) as a ON a.MaSV = b.MaSV WHERE a.MaSV IS NULL
+
+SELECT * FROM aquamon
+
+-- Danh sách bọn thi trượt
+SELECT * FROM DSSinhVien INNER JOIN KetQua ON KetQua.MaSV = DSSinhVien.MaSV WHERE KetQua.Diem <5
+
+/*
+10. Tạo view danh sách sinh viên không bi rớt môn nào	
+*/
+
