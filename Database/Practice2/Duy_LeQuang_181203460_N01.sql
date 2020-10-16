@@ -217,3 +217,30 @@ SELECT CONCAT(b.HoSV,' ',b.TenSV) as 'Ho va ten' FROM DSSinhVien b LEFT JOIN (SE
 ) as a ON a.MaSV = b.MaSV WHERE a.MaSV IS NULL
 
 /*====================================================================BAI3======================================================================*/
+USE BT3
+
+-- Tạo login login2, user User1
+exec sp_addlogin Login1,'112358'
+exec sp_adduser Login1, User1 
+
+-- Phân quyền select cho login 1
+
+grant select on DSSinhVien to User1
+
+-- Tạo login Login2, user User2
+exec sp_addlogin Login2,'112358'
+exec sp_adduser Login2, User2
+
+-- Vào sa phân quyền cho Login2
+GRANT UPDATE ON DSSinhVien to User2 WITH GRANT OPTION
+
+-- Vào Login2 phân quyền cho Login1
+GRANT UPDATE ON DSSinhVien to User1
+
+-- Kiểm tra quyền cho Login 1
+UPDATE DSSinhVien SET NoiSinh = 'Ha Noi' WHERE MaSV LIKE 'A01'
+SELECT * FROM DSSinhVien
+
+/*
+@Le Quang Duy - CNTT1K59
+*/
