@@ -106,6 +106,38 @@ END
 
 DROP TRIGGER autoPass2
 
+
+USE BT2
+
+SELECT * FROM DIEM
+
+
+CREATE TRIGGER DTN ON Diem ADD DTN float
+
+CREATE TRIGGER diemThapNhat ON DIEM FOR INSERT,UPDATE AS
+BEGIN
+	DECLARE @dtn float, @toan float, @ly float, @van float, @hoa float
+	SELECT @toan = TOAN, @ly = LY, @van = VAN, @hoa = HOA FROM INSERTED 
+
+	SET @dtn = @toan
+
+	IF @dtn>@ly
+		SET @dtn = @ly
+	IF @dtn>@van
+		SET @dtn = @van
+	IF @dtn>@hoa
+		SET @dtn = @hoa
+
+	UPDATE DIEM SET DTN = @dtn WHERE MAHS  = (SELECT MAHS FROM INSERTED)
+END
+
+SELECT * FROM DIEM
+
+UPDATE DIEM SET TOAN = 0 WHERE 
+
+
+
+
 UPDATE dbo.DIEM SET VAN = 10,TOAN=10,HOA=10,LY=4 WHERE MAHS LIKE '0102'
 
 SELECT * FROM DIEM WHERE MAHS LIKE '0102'

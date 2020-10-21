@@ -25,16 +25,24 @@ UPDATE tChiTietHDB SET KhuyenMai=NULL WHERE SoHDB LIKE 'HDB01'
 CREATE VIEW TranHuy AS
 
 SELECT tHoaDonBan.SoHDB as 'So hoa don ban', SUM(SLBan*DonGiaBan*(CASE WHEN KhuyenMai IS NOT NULL THEN CONVERT(int, KhuyenMai) ELSE 1 END)) as 'Tri gia hoa don', (SELECT SUM(SLBan*DonGiaBan*(CASE WHEN KhuyenMai IS NOT NULL THEN CONVERT(int, KhuyenMai) ELSE 1 END)) as 'Tri gia hoa don' FROM tHoaDonBan INNER JOIN tNhanVien ON tHoaDonBan.MaNV = tNhanVien.MaNV INNER JOIN tChiTietHDB ON tChiTietHDB.SoHDB = tHoaDonBan.SoHDB INNER JOIN tSach ON tSach.MaSach = tChiTietHDB.MaSach WHERE TenNV LIKE N'Trần Huy' AND (MONTH(NgayBan) = 1 OR MONTH(NgayBan) = 2) GROUP BY tHoaDonBan.MaNV
-) as 'Tong tri gia hoa don ban thang 1 va thang 2' FROM tHoaDonBan INNER JOIN tNhanVien ON tHoaDonBan.MaNV = tNhanVien.MaNV INNER JOIN tChiTietHDB ON tChiTietHDB.SoHDB = tHoaDonBan.SoHDB INNER JOIN tSach ON tSach.MaSach = tChiTietHDB.MaSach WHERE TenNV LIKE N'Trần Huy' AND (MONTH(NgayBan) = 1 OR MONTH(NgayBan) = 2) GROUP BY tHoaDonBan.SoHDB
+) as 'Tong tri gia hoa don ban thang 1 va thang 2' FROM tHoaDonBan INNER JOIN tNhanVien ON tHoaDonBan.MaNV = tNhanVien.MaNV INNER JOIN tChiTietHDB ON tChiTietHDB.SoHDB = tHoaDonBan.SoHDB INNER JOIN tSach ON tSach.MaSach = tChiTietHDB.MaSach WHERE TenNV LIKE N'Trần Huy' AND (MONTH(NgayBan) = 1 OR MONTH(NgayBan) = 2) GROUP BY ROLLUP(tHoaDonBan.SoHDB)
+
+-- FIX
+
+SELECT ISNULL(tHoaDonBan.SoHDB, 'Total'), tHoaDonBan.SoHDB as 'So hoa don ban', SUM(SLBan*DonGiaBan*(CASE WHEN KhuyenMai IS NOT NULL THEN CONVERT(int, KhuyenMai) ELSE 1 END)) as 'Tri gia hoa don' FROM tHoaDonBan INNER JOIN tNhanVien ON tHoaDonBan.MaNV = tNhanVien.MaNV INNER JOIN tChiTietHDB ON tChiTietHDB.SoHDB = tHoaDonBan.SoHDB INNER JOIN tSach ON tSach.MaSach = tChiTietHDB.MaSach WHERE TenNV LIKE N'Trần Huy' AND (MONTH(NgayBan) = 1 OR MONTH(NgayBan) = 2) GROUP BY ROLLUP(tHoaDonBan.SoHDB)
 
 UNION ALL
 
 SELECT tHoaDonNhap.SoHDN as 'So hoa don nhap', SUM(SLNhap*DonGiaNhap*(CASE WHEN KhuyenMai IS NOT NULL THEN CONVERT(int, KhuyenMai) ELSE 1 END)
 ) as 'Tri gia hoa don nhap', (SELECT SUM(SLNhap*DonGiaNhap*(CASE WHEN KhuyenMai IS NOT NULL THEN CONVERT(int, KhuyenMai) ELSE 1 END)
 )  FROM tHoaDonNhap INNER JOIN tNhanVien ON tHoaDonNhap.MaNV = tNhanVien.MaNV INNER JOIN tChiTietHDN ON tChiTietHDN.SoHDN = tHoaDonNhap.SoHDN INNER JOIN tSach ON tSach.MaSach = tChiTietHDN.MaSach WHERE TenNV LIKE N'Trần Huy' AND (MONTH(NgayNhap) = 1 OR MONTH(NgayNhap) = 6) GROUP BY tHoaDonNhap.MaNV
+) as 'Tong tri gia hoa don ban thang 1 va t6', (SELECT SUM(SLNhap*DonGiaNhap*(CASE WHEN KhuyenMai IS NOT NULL THEN CONVERT(int, KhuyenMai) ELSE 1 END)
+)  FROM tHoaDonNhap INNER JOIN tNhanVien ON tHoaDonNhap.MaNV = tNhanVien.MaNV INNER JOIN tChiTietHDN ON tChiTietHDN.SoHDN = tHoaDonNhap.SoHDN INNER JOIN tSach ON tSach.MaSach = tChiTietHDN.MaSach WHERE TenNV LIKE N'Trần Huy' AND (MONTH(NgayNhap) = 1 OR MONTH(NgayNhap) = 6) GROUP BY tHoaDonNhap.MaNV
 ) as 'Tong tri gia hoa don ban thang 1 va t6' FROM tHoaDonNhap INNER JOIN tNhanVien ON tHoaDonNhap.MaNV = tNhanVien.MaNV INNER JOIN tChiTietHDN ON tChiTietHDN.SoHDN = tHoaDonNhap.SoHDN  INNER JOIN tSach ON tSach.MaSach = tChiTietHDN.MaSach WHERE TenNV LIKE N'Trần Huy' AND (MONTH(NgayNhap) = 1 OR MONTH(NgayNhap) = 6) GROUP BY tHoaDonNhap.SoHDN
 
 SELECT * FROM TranHuy
+
+
 /*
 4. Tạo view đưa thông tin các các sách còn tồn 
 */
