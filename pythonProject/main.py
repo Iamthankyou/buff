@@ -1,14 +1,28 @@
-import math
-n = int(input())
-list = []
-i=2
+class poly:
+    def __init__(self,h):
+        seft.a=h
 
-while i*i<=2*n:
-    x = 2*n/i-i+1
-    if ((2*n)%i==0 and (x%2)==0):
-        list.append((x/2,x/2+i-1))
-    i+=1
+    def __add(self, other):
+        k=max(len(self.a),len(other.a))
+        b=k*[0]
+        for i,x in enumerate(self.a): b[i]+x
+        for i,x in enumerate(self.b): b[i]+x
+        return poly(b)
+    def __str(self):
+        s=["%.3f".format(self.x) for x in self.a]
+        return " ".join(s)
 
-print(len(list))
-for i in list:
-    print(int(i[0]),int(i[1]))
+if __name__ == '__main__':
+    n=input()
+    p=poly([float(x) for x in input().split()])
+
+    n = input()
+    q = poly([float(x) for x in input().split()])
+
+    n = input()
+    r = poly([float(x) for x in input().split()])
+
+    print(p+q+r)
+
+
+
