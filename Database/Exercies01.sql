@@ -106,6 +106,38 @@ END
 
 DROP TRIGGER autoPass2
 
+
+USE BT2
+
+SELECT * FROM DIEM
+
+
+CREATE TRIGGER DTN ON Diem ADD DTN float
+
+CREATE TRIGGER diemThapNhat ON DIEM FOR INSERT,UPDATE AS
+BEGIN
+	DECLARE @dtn float, @toan float, @ly float, @van float, @hoa float
+	SELECT @toan = TOAN, @ly = LY, @van = VAN, @hoa = HOA FROM INSERTED 
+
+	SET @dtn = @toan
+
+	IF @dtn>@ly
+		SET @dtn = @ly
+	IF @dtn>@van
+		SET @dtn = @van
+	IF @dtn>@hoa
+		SET @dtn = @hoa
+
+	UPDATE DIEM SET DTN = @dtn WHERE MAHS  = (SELECT MAHS FROM INSERTED)
+END
+
+SELECT * FROM DIEM
+
+UPDATE DIEM SET TOAN = 0 WHERE 
+
+
+
+
 UPDATE dbo.DIEM SET VAN = 10,TOAN=10,HOA=10,LY=4 WHERE MAHS LIKE '0102'
 
 SELECT * FROM DIEM WHERE MAHS LIKE '0102'
@@ -163,6 +195,101 @@ BEGIN
 END
 GO
 
+-- Show list DSHS code
+use BT2
+
+CREATE FUNCTION showList (@codeClass char(5)) RETURNS TABLE AS
+	RETURN (SELECT DSHS.HO,DSHS.TEN FROM DSHS INNER JOIN DIEM ON DSHS.MAHS = DIEM.MAHS INNER JOIN LOP ON LOP.LOP = DSHS.LOP WHERE 
+	(TOAN+LY+HOA+VAN)/4 >=8 AND LOP.LOP = @codeClass)
+
+-- START
+DROP FUNCTION getDTN
+DROP FUNCTION getDTB
+
+CREATE FUNCTION getDTN(@code nvarchar(5)) RETURNS FLOAT AS
+BEGIN
+	DECLARE @toan float, @ly float, @van float, @hoa float, @min float
+	SELECT @toan = TOAN, @ly = LY, @van = VAn, @hoa = HOA FROM DIEM WHERE @code = DIEM.MAHS
+	SET @min = @toan
+	IF (@min>@van)
+		SET @min = @van
+	IF (@min>@ly)
+		SET @min = @ly
+	IF (@min>@hoa)
+		SET @min = @hoa
+	RETURN @min
+END
+
+CREATE FUNCTION getDTB(@code nvarchar(5)) RETURNS FLOAT AS
+BEGIN
+	DECLARE @res float
+	SELECT @res = (TOAN+LY+HOA+VAN)/4 FROM DIEM WHERE @code = DIEM.MAHS
+	RETURN @res
+END
+
+CREATE FUNCTION getRank(@code nvarchar(5)) RETURNS nvarchar(10) AS
+BEGIN
+	DECLARE @res nvarchar(10)
+	DECLARE @dtb float
+	SET @dtb = dbo.getDTB(@code)
+	
+	IF (@dtb>=8)
+		SET @res = 'Gioi'
+	ELSE IF (@dtb>=6)
+		SET @res = 'Kha'
+	ELSE
+		SET @res = 'Trung Binh'
+
+	RETURN @res
+END
+
+CREATE FUNCTION getSex(@code nvarchar(5)) RETURNS nvarchar(10) AS
+BEGIN
+	DECLARE @x bit
+	SELECT @x = NU FROM DSHS WHERE @code = DSHS.MAHS
+	DECLARE @res nvarchar(10)
+
+	IF (@x=0)
+		SET @res = 'Nu'
+	ELSE 
+		SET @res = 'Nam'
+
+	RETURN @res
+END
+
+DROP FUNCTION showList3
+
+CREATE FUNCTION showList3(@codeClass nvarchar(4)) RETURNS TABLE AS RETURN(
+		SELECT dbo.getDTN(DSHS.MAHS) as 'DTN', dbo.getDTB(DSHS.MAHS) as 'DTB', dbo.getRank(DSHS.MAHS) as 'RANK' FROM DSHS WHERE @codeClass = DSHS.LOP
+	)
+
+DROP FUNCTION showList4
+
+CREATE FUNCTION showList4(@codeClass nvarchar(4)) RETURNS TABLE AS RETURN (
+	SELECT COUNT(DTN) AS 'Num',DTN as 'DTN' FROM dbo.showList3(@codeClass) GROUP BY DTN
+)
+
+CREATE FUNCTION showList5(@codeClass nvarchar(4)) RETURNS TABLE AS RETURN (
+	SELECT COUNT(DTB) AS 'Num',DTB as 'DTN' FROM dbo.showList3(@codeClass) GROUP BY DTB
+)
+
+CREATE FUNCTION showList6(@codeClass nvarchar(4)) RETURNS TABLE AS RETURN (
+	SELECT COUNT(RANK) AS 'Num',RANK as 'RANK' FROM dbo.showList3(@codeClass) GROUP BY RANK
+)
+
+
+SELECT * FROM dbo.showList4('10a1') 
+SELECT * FROM dbo.showList5('10a1') 
+SELECT * FROM dbo.showList6('10a1')
+
+SELECT * FROM dbo.showList6('10a1')
+
+CREATE FUNCTION showList2(@codeClass nvarchar(4)) RETURNS TABLE AS
+BEGIN
+	RETURN
+		(SELECT CONCAT(HO,' ',TEN) as 'FullName', dbo.getDTN(MAHS) as 'MinPoint', dbo.getDTB(MAHS) as 'AVGPoint', dbo.getSex(MAHS) as 'Sex', dbo.getRank(MAHS) as 'Rank' FROM DSHS WHERE LOP = @codeClass)
+END
+
 CREATE PROCEDURE updateDTN AS
 BEGIN
 	UPDATE DIEM 
@@ -202,4 +329,36 @@ CREATE VIEW topServer AS
 SELECT a.MAHS as 'Code',CONCAT(a.HO,' ',a.TEN) AS 'FullName',a.LOP AS 'class', (CASE WHEN a.NU=0 THEN 'Girl' ELSE 'Boy' END) as 'Sex', b.TOAN as 'Math', b.LY as 'Physical', b.HOA as 'Chemistry', b.VAN 'Literture',b.DTB,b.DTN FROM DSHS a INNER JOIN DIEM b ON a.MAHS = b.MAHS WHERE DTB = (SELECT MAX(DTB) FROM DIEM)
 	
 
+USE BT2
 
+ALTER TABLE DSHS ADD ghiChu nvarchar(100)
+
+CREATE TRIGGER autoUpdate2 ON DSHS INSTEAD OF DELETE AS
+BEGIN
+	UPDATE DSHS set ghiChu = 'Chuyen truong tu ngay ' + CONVERT(nvarchar(20),GETDATE()) WHERE DSHS.MAHS = (SELECT MAHS FROM DELETED)
+END
+
+SELECT * FROM DSHS WHERE MAHS LIKE '00935'
+
+DELETE FROM DSHS WHERE MAHS LIKE '00935'
+
+DROP TRIGGER rule1
+
+CREATE TRIGGER rule1 ON DIEM FOR INSERT, UPDATE AS
+BEGIN
+	IF ((SELECT TOAN FROM INSERTED) <0 OR (SELECT TOAN FROM INSERTED) >10)
+		ROLLBACK TRANSACTION
+
+	IF ((SELECT LY FROM INSERTED) <0 OR (SELECT LY FROM INSERTED) >10)
+		ROLLBACK TRANSACTION
+
+	IF ((SELECT HOA FROM INSERTED) <0 OR (SELECT HOA FROM INSERTED) >10)
+		ROLLBACK TRANSACTION
+
+	IF ((SELECT VAN FROM INSERTED) <0 OR (SELECT VAN FROM INSERTED) >10)
+		ROLLBACK TRANSACTION
+END
+
+SELECT * FROM DIEM
+
+UPDATE DIEM SET DIEM.HOA = 1 WHERE MAHS LIKE '00001'

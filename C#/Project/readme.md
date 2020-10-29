@@ -29,3 +29,57 @@
 		- PermisionDetail phân chia quyền hạn được rõ ràng hơn, ví dụ:
 			- ActionName là EditPrice và PermisionName của nó là Edit
 			- ActionName là EditPrice và PermisionName của nó là Admin
+
+#Tea Management Project
+
+- Data Access Layer : helper mapping table [Duy]
+- Entity Framework: .edmx [Duy]
+- Images: [An] + [Duy] + [Đại] 
+- Model: [Duy]
+- UI: [An] + [Đại] | Duy
+	- Home:
+		Show options for choose Tea
+		Button export to Excel Analysics
+		v.v..
+	- User Form
+		- Add User
+		- Remember Password
+		- Sign in
+		- Update User
+		- Infor User
+	- Customer Form: Detail Form display ex: infor, level, lastest bill
+			(Hiển thị thông tin khách hàng, số trà đã mua, 
+			loại trà ưa thích, hóa đơn gần nhất v.v.)
+	- Staff Form: management staff ex:
+		- Show all staffs: hiển thị tất cả, cho chọn xem chi tiết
+		- Legacy: form phân quyền cho từng nhân viên
+	- Configuration Forms
+		
+	- Teas Form
+		Add,Show,Delete Teas
+	- Topping Form
+		Add, show, Delete Toppings
+	- Resource Form: Kho
+		Add, show, delete resource
+
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
