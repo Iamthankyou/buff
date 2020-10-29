@@ -3,7 +3,6 @@ using namespace std;
 
 // Problem: x1+x2+..+xk = n
 
-
 void backTracking(int *x, int k, int t, int n, int m){ // x1+..x,<=T<=M
   if (k==n-1){
     x[n] = m-t;

@@ -7,3 +7,4 @@ def backTracking(x,k,t,n,m):
             backTracking(x+[i],k+1,t+i,n,m)
 
 backTracking([],0,0,3,5)
+
