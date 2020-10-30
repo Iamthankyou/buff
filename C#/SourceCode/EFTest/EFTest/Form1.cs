@@ -16,5 +16,12 @@ namespace EFTest
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            imageSlider1.Size = new Size(200, 400);
+            imageSlider1.Images.Add(Image.FromFile("F:\\img1.png"));
+            imageSlider1.Images.Add(Image.FromFile("F:\\img2.png"));
+        }
     }
 }

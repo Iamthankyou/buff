@@ -32,6 +32,8 @@
 
 #Tea Management Project
 
+Framework: Entity & Devexpress Winform
+
 - Data Access Layer : helper mapping table [Duy]
 - Entity Framework: .edmx [Duy]
 - Images: [An] + [Duy] + [Đại] 
