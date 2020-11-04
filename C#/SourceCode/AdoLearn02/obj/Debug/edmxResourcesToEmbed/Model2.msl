@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="tblMonModel1StoreContainer" CdmEntityContainer="tblMonEntities1">
+    <EntitySetMapping Name="tblmons">
+      <EntityTypeMapping TypeName="tblMonModel1.tblmon">
+        <MappingFragment StoreEntitySet="tblmon">
+          <ScalarProperty Name="MaMon" ColumnName="MaMon" />
+          <ScalarProperty Name="TenMon" ColumnName="TenMon" />
+          <ScalarProperty Name="SoTC" ColumnName="SoTC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

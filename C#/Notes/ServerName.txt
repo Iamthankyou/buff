@@ -1,0 +1,1 @@
+metadata=res://*/Model1.csdl|res://*/Model1.ssdl|res://*/Model1.msl;provider=System.Data.SqlClient;provider connection string="data source=ADMIN;initial catalog=tblMon;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework"
