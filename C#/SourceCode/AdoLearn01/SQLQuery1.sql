@@ -8,5 +8,4 @@ CREATE TABLE tblmon(
 	SoTC int
 );
 
-SELECT * FROM tbls
-
+SELECT * FROM tblmon
