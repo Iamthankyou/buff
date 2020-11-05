@@ -33,6 +33,7 @@
 #Tea Management Project
 
 Framework: Entity & Devexpress Winform
+Navigation bar: responsive style and navigation 
 
 - Data Access Layer : helper mapping table [Duy]
 - Entity Framework: .edmx [Duy]
