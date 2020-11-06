@@ -1,0 +1,15 @@
+D:\buff\C#\SourceCode\KiemTra\bin\Debug\KiemTra.exe.config
+D:\buff\C#\SourceCode\KiemTra\bin\Debug\KiemTra.exe
+D:\buff\C#\SourceCode\KiemTra\bin\Debug\KiemTra.pdb
+D:\buff\C#\SourceCode\KiemTra\bin\Debug\EntityFramework.dll
+D:\buff\C#\SourceCode\KiemTra\bin\Debug\EntityFramework.SqlServer.dll
+D:\buff\C#\SourceCode\KiemTra\bin\Debug\EntityFramework.xml
+D:\buff\C#\SourceCode\KiemTra\bin\Debug\EntityFramework.SqlServer.xml
+D:\buff\C#\SourceCode\KiemTra\obj\Debug\KiemTra.csprojAssemblyReference.cache
+D:\buff\C#\SourceCode\KiemTra\obj\Debug\KiemTra.Form1.resources
+D:\buff\C#\SourceCode\KiemTra\obj\Debug\KiemTra.Properties.Resources.resources
+D:\buff\C#\SourceCode\KiemTra\obj\Debug\KiemTra.csproj.GenerateResource.cache
+D:\buff\C#\SourceCode\KiemTra\obj\Debug\KiemTra.csproj.CoreCompileInputs.cache
+D:\buff\C#\SourceCode\KiemTra\obj\Debug\KiemTra.csproj.CopyComplete
+D:\buff\C#\SourceCode\KiemTra\obj\Debug\KiemTra.exe
+D:\buff\C#\SourceCode\KiemTra\obj\Debug\KiemTra.pdb
