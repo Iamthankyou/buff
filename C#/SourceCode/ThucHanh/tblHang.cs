@@ -20,5 +20,6 @@ namespace ThucHanh
         public Nullable<int> SoLuong { get; set; }
         public Nullable<double> DonGiaNhap { get; set; }
         public Nullable<double> DonGiaBan { get; set; }
+        public string URL { get; set; }
     }
 }

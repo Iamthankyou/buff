@@ -1,4 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="BanHangModelStoreContainer" CdmEntityContainer="BanHangEntities" />
+  <EntityContainerMapping StorageEntityContainer="BanHangModelStoreContainer" CdmEntityContainer="BanHangEntities">
+    <EntitySetMapping Name="tblHangs">
+      <EntityTypeMapping TypeName="BanHangModel.tblHang">
+        <MappingFragment StoreEntitySet="tblHang">
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="DonGiaBan" ColumnName="DonGiaBan" />
+          <ScalarProperty Name="DonGiaNhap" ColumnName="DonGiaNhap" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="ChatLieu" ColumnName="ChatLieu" />
+          <ScalarProperty Name="TenHang" ColumnName="TenHang" />
+          <ScalarProperty Name="MaHang" ColumnName="MaHang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblUsers">
+      <EntityTypeMapping TypeName="BanHangModel.tblUser">
+        <MappingFragment StoreEntitySet="tblUser">
+          <ScalarProperty Name="passWord" ColumnName="passWord" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
 </Mapping>

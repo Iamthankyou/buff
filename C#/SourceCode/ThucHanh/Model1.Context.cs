@@ -25,5 +25,7 @@ namespace ThucHanh
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<tblHang> tblHangs { get; set; }
+        public virtual DbSet<tblUser> tblUsers { get; set; }
     }
 }
