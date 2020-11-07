@@ -40,7 +40,7 @@ Navigation bar: responsive style and navigation
 - Data Access Layer : helper mapping table [Duy]
 - Entity Framework: .edmx [Duy]
 - Images: [An] + [Duy] + [Đại] 
-- Model: [Duy]
+- Model: [Duy] Duy
 - UI: [An] + [Đại] | Duy
 	- Home:
 		Show options for choose Tea
