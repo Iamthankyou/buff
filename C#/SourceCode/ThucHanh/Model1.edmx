@@ -4,36 +4,85 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BanHangModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BanHang.dbo.tblHang' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+    <Schema Namespace="BanHangModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblHang">
-          <Property Name="MaHang" Type="nvarchar" MaxLength="50" />
+          <Key>
+            <PropertyRef Name="MaHang" />
+          </Key>
+          <Property Name="MaHang" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="TenHang" Type="nvarchar" MaxLength="50" />
           <Property Name="ChatLieu" Type="nvarchar" MaxLength="50" />
-          <Property Name="Soluong" Type="int" />
+          <Property Name="SoLuong" Type="int" />
           <Property Name="DonGiaNhap" Type="float" />
           <Property Name="DonGiaBan" Type="float" />
-        </EntityType>-->
-        <!--Errors Found During Generation:
-warning 6013: The table/view 'BanHang.dbo.tblUser' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+          <Property Name="URL" Type="nvarchar" MaxLength="200" />
+        </EntityType>
         <EntityType Name="tblUser">
-          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
-          <Property Name="Pass" Type="nvarchar" MaxLength="50" />
-        </EntityType>-->
-        <EntityContainer Name="BanHangModelStoreContainer" />
-      </Schema>
-    </edmx:StorageModels>
+          <Key>
+            <PropertyRef Name="userName" />
+          </Key>
+          <Property Name="userName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="passWord" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="BanHangModelStoreContainer">
+          <EntitySet Name="tblHang" EntityType="Self.tblHang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BanHangModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="BanHangEntities" annotation:LazyLoadingEnabled="true" />
+        <EntityContainer Name="BanHangEntities" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="tblHangs" EntityType="BanHangModel.tblHang" />
+          <EntitySet Name="tblUsers" EntityType="BanHangModel.tblUser" />
+        </EntityContainer>
+        <EntityType Name="tblHang">
+          <Key>
+            <PropertyRef Name="MaHang" />
+          </Key>
+          <Property Name="MaHang" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TenHang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ChatLieu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SoLuong" Type="Int32" />
+          <Property Name="DonGiaNhap" Type="Double" />
+          <Property Name="DonGiaBan" Type="Double" />
+          <Property Name="URL" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblUser">
+          <Key>
+            <PropertyRef Name="userName" />
+          </Key>
+          <Property Name="userName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="passWord" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BanHangModelStoreContainer" CdmEntityContainer="BanHangEntities" />
+        <EntityContainerMapping StorageEntityContainer="BanHangModelStoreContainer" CdmEntityContainer="BanHangEntities" >
+          <EntitySetMapping Name="tblHangs">
+            <EntityTypeMapping TypeName="BanHangModel.tblHang">
+              <MappingFragment StoreEntitySet="tblHang">
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="DonGiaBan" ColumnName="DonGiaBan" />
+                <ScalarProperty Name="DonGiaNhap" ColumnName="DonGiaNhap" />
+                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="ChatLieu" ColumnName="ChatLieu" />
+                <ScalarProperty Name="TenHang" ColumnName="TenHang" />
+                <ScalarProperty Name="MaHang" ColumnName="MaHang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUsers">
+            <EntityTypeMapping TypeName="BanHangModel.tblUser">
+              <MappingFragment StoreEntitySet="tblUser">
+                <ScalarProperty Name="passWord" ColumnName="passWord" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

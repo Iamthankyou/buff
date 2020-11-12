@@ -22,12 +22,14 @@ namespace ThucHanh
 
         private void button1_Click(object sender, EventArgs e)
         {
-            BanHangEntities1 db = new BanHangEntities1();
+            BanHangEntities2 db = new BanHangEntities2();
             var user = db.tblUsers.Find(txUser.Text);
 
             if (user != null && user.passWord == Encryption.Crypt(txPass.Text))
             {
-                userName = user.userName;
+                userName = "Xin chào người dùng: "+user.userName;
+                this.Hide();
+                (new Form2()).Show();
             }
             else
             {

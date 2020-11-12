@@ -17,6 +17,7 @@ namespace EFTest
             InitializeComponent();
         }
 
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             imageSlider1.Size = new Size(200, 400);

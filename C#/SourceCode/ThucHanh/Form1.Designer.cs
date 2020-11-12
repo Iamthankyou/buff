@@ -58,6 +58,7 @@
             this.txPass.Name = "txPass";
             this.txPass.Size = new System.Drawing.Size(100, 20);
             this.txPass.TabIndex = 3;
+            this.txPass.UseSystemPasswordChar = true;
             // 
             // label2
             // 
@@ -100,6 +101,7 @@
             this.Controls.Add(this.txUser);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập hệ thống";
             this.ResumeLayout(false);
             this.PerformLayout();

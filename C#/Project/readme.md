@@ -17,6 +17,8 @@
 		- pagekages.config [XML]
 		- Program.cs
 
+D:\TeaManagement\Project\Images\
+
 - SQL Schema
 	- Hóa đơn (Bills) thì chỉ có một quan trọng nhất là tổng tiền, khách hàng là ai và nhân viên nào ghi nhận hóa đơn đó.
 	- Items là join table của Bills và Drinks ví dụ với mã hóa đơn 112358 mua trà sữa Chân châu (còn DrinkType chỉ là phân trà sữa thành các loại) với số lượng 2, 
@@ -38,7 +40,7 @@ Navigation bar: responsive style and navigation
 - Data Access Layer : helper mapping table [Duy]
 - Entity Framework: .edmx [Duy]
 - Images: [An] + [Duy] + [Đại] 
-- Model: [Duy]
+- Model: [Duy] Duy
 - UI: [An] + [Đại] | Duy
 	- Home:
 		Show options for choose Tea

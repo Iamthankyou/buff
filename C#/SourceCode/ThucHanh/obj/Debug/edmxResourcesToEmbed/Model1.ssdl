@@ -1,20 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="BanHangModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'BanHang.dbo.tblHang' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="tblHang">
-          <Property Name="MaHang" Type="nvarchar" MaxLength="50" />
-          <Property Name="TenHang" Type="nvarchar" MaxLength="50" />
-          <Property Name="ChatLieu" Type="nvarchar" MaxLength="50" />
-          <Property Name="Soluong" Type="int" />
-          <Property Name="DonGiaNhap" Type="float" />
-          <Property Name="DonGiaBan" Type="float" />
-        </EntityType>-->
-  <!--Errors Found During Generation:
-warning 6013: The table/view 'BanHang.dbo.tblUser' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
-        <EntityType Name="tblUser">
-          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
-          <Property Name="Pass" Type="nvarchar" MaxLength="50" />
-        </EntityType>-->
-  <EntityContainer Name="BanHangModelStoreContainer" />
+<Schema Namespace="BanHangModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblHang">
+    <Key>
+      <PropertyRef Name="MaHang" />
+    </Key>
+    <Property Name="MaHang" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TenHang" Type="nvarchar" MaxLength="50" />
+    <Property Name="ChatLieu" Type="nvarchar" MaxLength="50" />
+    <Property Name="SoLuong" Type="int" />
+    <Property Name="DonGiaNhap" Type="float" />
+    <Property Name="DonGiaBan" Type="float" />
+    <Property Name="URL" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tblUser">
+    <Key>
+      <PropertyRef Name="userName" />
+    </Key>
+    <Property Name="userName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="passWord" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityContainer Name="BanHangModelStoreContainer">
+    <EntitySet Name="tblHang" EntityType="Self.tblHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
 </Schema>

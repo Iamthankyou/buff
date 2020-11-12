@@ -36,20 +36,23 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.svgImageBox1 = new DevExpress.XtraEditors.SvgImageBox();
+            this.txMaHang = new System.Windows.Forms.TextBox();
+            this.txDonGiaBan = new System.Windows.Forms.TextBox();
+            this.txDonGiaNhap = new System.Windows.Forms.TextBox();
+            this.txSoLuong = new System.Windows.Forms.TextBox();
+            this.txChatLieu = new System.Windows.Forms.TextBox();
+            this.txTenHang = new System.Windows.Forms.TextBox();
+            this.btnThem = new System.Windows.Forms.Button();
+            this.btnXoa = new System.Windows.Forms.Button();
+            this.btnSua = new System.Windows.Forms.Button();
+            this.btnThoat = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).BeginInit();
+            this.txGhiChu = new System.Windows.Forms.TextBox();
+            this.btnAnh = new System.Windows.Forms.Button();
+            this.gridView = new System.Windows.Forms.DataGridView();
+            this.imgBox = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -86,27 +89,27 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(39, 224);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.Size = new System.Drawing.Size(71, 13);
             this.label4.TabIndex = 3;
-            this.label4.Text = "label4";
+            this.label4.Text = "Đơn giá nhập";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(39, 188);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 4;
-            this.label5.Text = "label5";
+            this.label5.Text = "Số lượng";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(39, 154);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.Size = new System.Drawing.Size(48, 13);
             this.label6.TabIndex = 5;
-            this.label6.Text = "label6";
+            this.label6.Text = "Chất liệu";
             // 
             // label7
             // 
@@ -122,131 +125,153 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(39, 261);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.Size = new System.Drawing.Size(65, 13);
             this.label8.TabIndex = 7;
-            this.label8.Text = "label8";
+            this.label8.Text = "Đơn giá bán";
             // 
-            // textBox1
+            // txMaHang
             // 
-            this.textBox1.Location = new System.Drawing.Point(130, 78);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 8;
+            this.txMaHang.Location = new System.Drawing.Point(130, 78);
+            this.txMaHang.Name = "txMaHang";
+            this.txMaHang.Size = new System.Drawing.Size(100, 20);
+            this.txMaHang.TabIndex = 8;
             // 
-            // textBox3
+            // txDonGiaBan
             // 
-            this.textBox3.Location = new System.Drawing.Point(130, 254);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 10;
+            this.txDonGiaBan.Location = new System.Drawing.Point(130, 254);
+            this.txDonGiaBan.Name = "txDonGiaBan";
+            this.txDonGiaBan.Size = new System.Drawing.Size(100, 20);
+            this.txDonGiaBan.TabIndex = 10;
             // 
-            // textBox4
+            // txDonGiaNhap
             // 
-            this.textBox4.Location = new System.Drawing.Point(130, 217);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 11;
+            this.txDonGiaNhap.Location = new System.Drawing.Point(130, 217);
+            this.txDonGiaNhap.Name = "txDonGiaNhap";
+            this.txDonGiaNhap.Size = new System.Drawing.Size(100, 20);
+            this.txDonGiaNhap.TabIndex = 11;
             // 
-            // textBox5
+            // txSoLuong
             // 
-            this.textBox5.Location = new System.Drawing.Point(130, 181);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 12;
+            this.txSoLuong.Location = new System.Drawing.Point(130, 181);
+            this.txSoLuong.Name = "txSoLuong";
+            this.txSoLuong.Size = new System.Drawing.Size(100, 20);
+            this.txSoLuong.TabIndex = 12;
             // 
-            // textBox6
+            // txChatLieu
             // 
-            this.textBox6.Location = new System.Drawing.Point(130, 151);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 13;
+            this.txChatLieu.Location = new System.Drawing.Point(130, 151);
+            this.txChatLieu.Name = "txChatLieu";
+            this.txChatLieu.Size = new System.Drawing.Size(100, 20);
+            this.txChatLieu.TabIndex = 13;
             // 
-            // textBox7
+            // txTenHang
             // 
-            this.textBox7.Location = new System.Drawing.Point(130, 118);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 14;
+            this.txTenHang.Location = new System.Drawing.Point(130, 118);
+            this.txTenHang.Name = "txTenHang";
+            this.txTenHang.Size = new System.Drawing.Size(100, 20);
+            this.txTenHang.TabIndex = 14;
             // 
-            // button1
+            // btnThem
             // 
-            this.button1.Location = new System.Drawing.Point(42, 306);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnThem.Location = new System.Drawing.Point(42, 435);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(75, 23);
+            this.btnThem.TabIndex = 15;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
-            // button2
+            // btnXoa
             // 
-            this.button2.Location = new System.Drawing.Point(362, 306);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnXoa.Location = new System.Drawing.Point(362, 435);
+            this.btnXoa.Name = "btnXoa";
+            this.btnXoa.Size = new System.Drawing.Size(75, 23);
+            this.btnXoa.TabIndex = 16;
+            this.btnXoa.Text = "Xóa";
+            this.btnXoa.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnSua
             // 
-            this.button3.Location = new System.Drawing.Point(197, 306);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 17;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSua.Location = new System.Drawing.Point(197, 435);
+            this.btnSua.Name = "btnSua";
+            this.btnSua.Size = new System.Drawing.Size(75, 23);
+            this.btnSua.TabIndex = 17;
+            this.btnSua.Text = "Sửa";
+            this.btnSua.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnThoat
             // 
-            this.button4.Location = new System.Drawing.Point(531, 306);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 18;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // svgImageBox1
-            // 
-            this.svgImageBox1.Location = new System.Drawing.Point(486, 78);
-            this.svgImageBox1.Name = "svgImageBox1";
-            this.svgImageBox1.Size = new System.Drawing.Size(120, 120);
-            this.svgImageBox1.TabIndex = 19;
-            this.svgImageBox1.Text = "svgImageBox1";
+            this.btnThoat.Location = new System.Drawing.Point(531, 435);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(75, 23);
+            this.btnThoat.TabIndex = 18;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.UseVisualStyleBackColor = true;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(445, 208);
+            this.label9.Location = new System.Drawing.Point(436, 208);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(35, 13);
+            this.label9.Size = new System.Drawing.Size(44, 13);
             this.label9.TabIndex = 20;
-            this.label9.Text = "label9";
+            this.label9.Text = "Ghi chú";
             // 
-            // textBox2
+            // txGhiChu
             // 
-            this.textBox2.Location = new System.Drawing.Point(486, 208);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(120, 70);
-            this.textBox2.TabIndex = 21;
+            this.txGhiChu.Location = new System.Drawing.Point(486, 208);
+            this.txGhiChu.Multiline = true;
+            this.txGhiChu.Name = "txGhiChu";
+            this.txGhiChu.Size = new System.Drawing.Size(120, 70);
+            this.txGhiChu.TabIndex = 21;
+            // 
+            // btnAnh
+            // 
+            this.btnAnh.Location = new System.Drawing.Point(389, 78);
+            this.btnAnh.Name = "btnAnh";
+            this.btnAnh.Size = new System.Drawing.Size(75, 23);
+            this.btnAnh.TabIndex = 22;
+            this.btnAnh.Text = "Ảnh";
+            this.btnAnh.UseVisualStyleBackColor = true;
+            this.btnAnh.Click += new System.EventHandler(this.btnAnh_Click);
+            // 
+            // gridView
+            // 
+            this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridView.Location = new System.Drawing.Point(42, 297);
+            this.gridView.Name = "gridView";
+            this.gridView.Size = new System.Drawing.Size(786, 114);
+            this.gridView.TabIndex = 23;
+            this.gridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridView_CellContentClick);
+            // 
+            // imgBox
+            // 
+            this.imgBox.Location = new System.Drawing.Point(486, 78);
+            this.imgBox.Name = "imgBox";
+            this.imgBox.Size = new System.Drawing.Size(138, 105);
+            this.imgBox.TabIndex = 24;
+            this.imgBox.TabStop = false;
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(674, 361);
-            this.Controls.Add(this.textBox2);
+            this.ClientSize = new System.Drawing.Size(840, 483);
+            this.Controls.Add(this.imgBox);
+            this.Controls.Add(this.gridView);
+            this.Controls.Add(this.btnAnh);
+            this.Controls.Add(this.txGhiChu);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.svgImageBox1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnThoat);
+            this.Controls.Add(this.btnSua);
+            this.Controls.Add(this.btnXoa);
+            this.Controls.Add(this.btnThem);
+            this.Controls.Add(this.txTenHang);
+            this.Controls.Add(this.txChatLieu);
+            this.Controls.Add(this.txSoLuong);
+            this.Controls.Add(this.txDonGiaNhap);
+            this.Controls.Add(this.txDonGiaBan);
+            this.Controls.Add(this.txMaHang);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -257,7 +282,9 @@
             this.Controls.Add(this.label1);
             this.Name = "Form2";
             this.Text = "Form2";
-            ((System.ComponentModel.ISupportInitialize)(this.svgImageBox1)).EndInit();
+            this.Load += new System.EventHandler(this.Form2_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -273,18 +300,20 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private DevExpress.XtraEditors.SvgImageBox svgImageBox1;
+        private System.Windows.Forms.TextBox txMaHang;
+        private System.Windows.Forms.TextBox txDonGiaBan;
+        private System.Windows.Forms.TextBox txDonGiaNhap;
+        private System.Windows.Forms.TextBox txSoLuong;
+        private System.Windows.Forms.TextBox txChatLieu;
+        private System.Windows.Forms.TextBox txTenHang;
+        private System.Windows.Forms.Button btnThem;
+        private System.Windows.Forms.Button btnXoa;
+        private System.Windows.Forms.Button btnSua;
+        private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txGhiChu;
+        private System.Windows.Forms.Button btnAnh;
+        private System.Windows.Forms.DataGridView gridView;
+        private System.Windows.Forms.PictureBox imgBox;
     }
 }
