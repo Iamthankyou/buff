@@ -23,4 +23,3 @@ class Graph:
         for e in self.A:
             if (self.getroot(e.u)!=self.getroot(e.v)):
                 self.D[x] = y
-                
