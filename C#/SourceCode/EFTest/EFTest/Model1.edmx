@@ -1,0 +1,706 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PTTKHTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="bai_giang">
+          <Key>
+            <PropertyRef Name="id_bai_giang" />
+          </Key>
+          <Property Name="id_bai_giang" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="noi_dung_bg" Type="int" Nullable="false" />
+          <Property Name="thoi_gian_bg" Type="datetime" Nullable="false" />
+          <Property Name="luot_xem" Type="int" Nullable="false" />
+          <Property Name="sl_Like_BG" Type="int" Nullable="false" />
+          <Property Name="id_nguoi_dung" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="bai_viet">
+          <Key>
+            <PropertyRef Name="ID_bai_viet" />
+          </Key>
+          <Property Name="noi_dung" Type="varchar" MaxLength="1" Nullable="false" />
+          <Property Name="ID_bai_viet" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="sl_Like" Type="int" Nullable="false" />
+          <Property Name="thoi_gian_dang_bai" Type="datetime" Nullable="false" />
+          <Property Name="id_nguoi_dung" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="binh_luan">
+          <Key>
+            <PropertyRef Name="ID_BL" />
+          </Key>
+          <Property Name="noi_dung_binh_luan" Type="int" Nullable="false" />
+          <Property Name="ID_BL" Type="int" Nullable="false" />
+          <Property Name="sl_Like_BL" Type="int" Nullable="false" />
+          <Property Name="thoi_gian_BL" Type="int" Nullable="false" />
+          <Property Name="ID_bai_viet" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cap_bac">
+          <Key>
+            <PropertyRef Name="id_cap_bac" />
+          </Key>
+          <Property Name="id_cap_bac" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="chu_thich" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="chi_tiet">
+          <Key>
+            <PropertyRef Name="id_nguoi_dung" />
+            <PropertyRef Name="id_de_thi" />
+          </Key>
+          <Property Name="thoi_gian_nop" Type="datetime" Nullable="false" />
+          <Property Name="diem" Type="float" Nullable="false" />
+          <Property Name="id_nguoi_dung" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="id_de_thi" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="cuoc_thi">
+          <Key>
+            <PropertyRef Name="ID_CT" />
+          </Key>
+          <Property Name="ID_CT" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="tieu_de" Type="text" Nullable="false" />
+          <Property Name="the_le" Type="text" Nullable="false" />
+          <Property Name="thoi_gian_BDCT" Type="datetime" Nullable="false" />
+          <Property Name="thoi_gian_KTCT" Type="datetime" Nullable="false" />
+          <Property Name="sl_nguoi_tham_gia" Type="int" Nullable="false" />
+          <Property Name="id_de_thi" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="De_Thi">
+          <Key>
+            <PropertyRef Name="id_de_thi" />
+          </Key>
+          <Property Name="id_de_thi" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="thoi_gian_lam" Type="int" Nullable="false" />
+          <Property Name="noi_dung_daotao" Type="text" Nullable="false" />
+          <Property Name="ghi_chu" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="nguoi_dung">
+          <Key>
+            <PropertyRef Name="id_nguoi_dung" />
+          </Key>
+          <Property Name="id_nguoi_dung" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="mat_khau" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ho_ten" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="birthday" Type="datetime" Nullable="false" />
+          <Property Name="xep_hang" Type="int" Nullable="false" />
+          <Property Name="id_cap_bac" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tai_lieu">
+          <Key>
+            <PropertyRef Name="id_tai_lieu" />
+          </Key>
+          <Property Name="id_tai_lieu" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="noi_dung_tai_lieu" Type="text" Nullable="false" />
+          <Property Name="thoi_gian_dang" Type="datetime" Nullable="false" />
+          <Property Name="chu_de" Type="text" Nullable="false" />
+          <Property Name="id_nguoi_dung" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="to_chuc">
+          <Key>
+            <PropertyRef Name="id_nguoi_dung" />
+            <PropertyRef Name="ID_CT" />
+          </Key>
+          <Property Name="id_nguoi_dung" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ID_CT" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__bai_giang__id_ng__1A14E395">
+          <End Role="nguoi_dung" Type="Self.nguoi_dung" Multiplicity="1" />
+          <End Role="bai_giang" Type="Self.bai_giang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nguoi_dung">
+              <PropertyRef Name="id_nguoi_dung" />
+            </Principal>
+            <Dependent Role="bai_giang">
+              <PropertyRef Name="id_nguoi_dung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__bai_viet__id_ngu__1CF15040">
+          <End Role="nguoi_dung" Type="Self.nguoi_dung" Multiplicity="1" />
+          <End Role="bai_viet" Type="Self.bai_viet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nguoi_dung">
+              <PropertyRef Name="id_nguoi_dung" />
+            </Principal>
+            <Dependent Role="bai_viet">
+              <PropertyRef Name="id_nguoi_dung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__binh_luan__ID_ba__22AA2996">
+          <End Role="bai_viet" Type="Self.bai_viet" Multiplicity="1" />
+          <End Role="binh_luan" Type="Self.binh_luan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bai_viet">
+              <PropertyRef Name="ID_bai_viet" />
+            </Principal>
+            <Dependent Role="binh_luan">
+              <PropertyRef Name="ID_bai_viet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__chi_tiet__id_de___2A4B4B5E">
+          <End Role="De_Thi" Type="Self.De_Thi" Multiplicity="1" />
+          <End Role="chi_tiet" Type="Self.chi_tiet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="De_Thi">
+              <PropertyRef Name="id_de_thi" />
+            </Principal>
+            <Dependent Role="chi_tiet">
+              <PropertyRef Name="id_de_thi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__chi_tiet__id_ngu__29572725">
+          <End Role="nguoi_dung" Type="Self.nguoi_dung" Multiplicity="1" />
+          <End Role="chi_tiet" Type="Self.chi_tiet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nguoi_dung">
+              <PropertyRef Name="id_nguoi_dung" />
+            </Principal>
+            <Dependent Role="chi_tiet">
+              <PropertyRef Name="id_nguoi_dung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__cuoc_thi__id_de___1FCDBCEB">
+          <End Role="De_Thi" Type="Self.De_Thi" Multiplicity="1" />
+          <End Role="cuoc_thi" Type="Self.cuoc_thi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="De_Thi">
+              <PropertyRef Name="id_de_thi" />
+            </Principal>
+            <Dependent Role="cuoc_thi">
+              <PropertyRef Name="id_de_thi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__nguoi_dun__id_ca__145C0A3F">
+          <End Role="cap_bac" Type="Self.cap_bac" Multiplicity="1" />
+          <End Role="nguoi_dung" Type="Self.nguoi_dung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cap_bac">
+              <PropertyRef Name="id_cap_bac" />
+            </Principal>
+            <Dependent Role="nguoi_dung">
+              <PropertyRef Name="id_cap_bac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tai_lieu__id_ngu__173876EA">
+          <End Role="nguoi_dung" Type="Self.nguoi_dung" Multiplicity="1" />
+          <End Role="tai_lieu" Type="Self.tai_lieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nguoi_dung">
+              <PropertyRef Name="id_nguoi_dung" />
+            </Principal>
+            <Dependent Role="tai_lieu">
+              <PropertyRef Name="id_nguoi_dung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__to_chuc__ID_CT__267ABA7A">
+          <End Role="cuoc_thi" Type="Self.cuoc_thi" Multiplicity="1" />
+          <End Role="to_chuc" Type="Self.to_chuc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cuoc_thi">
+              <PropertyRef Name="ID_CT" />
+            </Principal>
+            <Dependent Role="to_chuc">
+              <PropertyRef Name="ID_CT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__to_chuc__id_nguo__25869641">
+          <End Role="nguoi_dung" Type="Self.nguoi_dung" Multiplicity="1" />
+          <End Role="to_chuc" Type="Self.to_chuc" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nguoi_dung">
+              <PropertyRef Name="id_nguoi_dung" />
+            </Principal>
+            <Dependent Role="to_chuc">
+              <PropertyRef Name="id_nguoi_dung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PTTKHTModelStoreContainer">
+          <EntitySet Name="bai_giang" EntityType="Self.bai_giang" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bai_viet" EntityType="Self.bai_viet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="binh_luan" EntityType="Self.binh_luan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cap_bac" EntityType="Self.cap_bac" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="chi_tiet" EntityType="Self.chi_tiet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cuoc_thi" EntityType="Self.cuoc_thi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="De_Thi" EntityType="Self.De_Thi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="nguoi_dung" EntityType="Self.nguoi_dung" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tai_lieu" EntityType="Self.tai_lieu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="to_chuc" EntityType="Self.to_chuc" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__bai_giang__id_ng__1A14E395" Association="Self.FK__bai_giang__id_ng__1A14E395">
+            <End Role="nguoi_dung" EntitySet="nguoi_dung" />
+            <End Role="bai_giang" EntitySet="bai_giang" />
+          </AssociationSet>
+          <AssociationSet Name="FK__bai_viet__id_ngu__1CF15040" Association="Self.FK__bai_viet__id_ngu__1CF15040">
+            <End Role="nguoi_dung" EntitySet="nguoi_dung" />
+            <End Role="bai_viet" EntitySet="bai_viet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__binh_luan__ID_ba__22AA2996" Association="Self.FK__binh_luan__ID_ba__22AA2996">
+            <End Role="bai_viet" EntitySet="bai_viet" />
+            <End Role="binh_luan" EntitySet="binh_luan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__chi_tiet__id_de___2A4B4B5E" Association="Self.FK__chi_tiet__id_de___2A4B4B5E">
+            <End Role="De_Thi" EntitySet="De_Thi" />
+            <End Role="chi_tiet" EntitySet="chi_tiet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__chi_tiet__id_ngu__29572725" Association="Self.FK__chi_tiet__id_ngu__29572725">
+            <End Role="nguoi_dung" EntitySet="nguoi_dung" />
+            <End Role="chi_tiet" EntitySet="chi_tiet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__cuoc_thi__id_de___1FCDBCEB" Association="Self.FK__cuoc_thi__id_de___1FCDBCEB">
+            <End Role="De_Thi" EntitySet="De_Thi" />
+            <End Role="cuoc_thi" EntitySet="cuoc_thi" />
+          </AssociationSet>
+          <AssociationSet Name="FK__nguoi_dun__id_ca__145C0A3F" Association="Self.FK__nguoi_dun__id_ca__145C0A3F">
+            <End Role="cap_bac" EntitySet="cap_bac" />
+            <End Role="nguoi_dung" EntitySet="nguoi_dung" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tai_lieu__id_ngu__173876EA" Association="Self.FK__tai_lieu__id_ngu__173876EA">
+            <End Role="nguoi_dung" EntitySet="nguoi_dung" />
+            <End Role="tai_lieu" EntitySet="tai_lieu" />
+          </AssociationSet>
+          <AssociationSet Name="FK__to_chuc__ID_CT__267ABA7A" Association="Self.FK__to_chuc__ID_CT__267ABA7A">
+            <End Role="cuoc_thi" EntitySet="cuoc_thi" />
+            <End Role="to_chuc" EntitySet="to_chuc" />
+          </AssociationSet>
+          <AssociationSet Name="FK__to_chuc__id_nguo__25869641" Association="Self.FK__to_chuc__id_nguo__25869641">
+            <End Role="nguoi_dung" EntitySet="nguoi_dung" />
+            <End Role="to_chuc" EntitySet="to_chuc" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PTTKHTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="bai_giang">
+          <Key>
+            <PropertyRef Name="id_bai_giang" />
+          </Key>
+          <Property Name="id_bai_giang" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="noi_dung_bg" Type="Int32" Nullable="false" />
+          <Property Name="thoi_gian_bg" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="luot_xem" Type="Int32" Nullable="false" />
+          <Property Name="sl_Like_BG" Type="Int32" Nullable="false" />
+          <Property Name="id_nguoi_dung" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="nguoi_dung" Relationship="Self.FK__bai_giang__id_ng__1A14E395" FromRole="bai_giang" ToRole="nguoi_dung" />
+        </EntityType>
+        <EntityType Name="bai_viet">
+          <Key>
+            <PropertyRef Name="ID_bai_viet" />
+          </Key>
+          <Property Name="noi_dung" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_bai_viet" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sl_Like" Type="Int32" Nullable="false" />
+          <Property Name="thoi_gian_dang_bai" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="id_nguoi_dung" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="nguoi_dung" Relationship="Self.FK__bai_viet__id_ngu__1CF15040" FromRole="bai_viet" ToRole="nguoi_dung" />
+          <NavigationProperty Name="binh_luan" Relationship="Self.FK__binh_luan__ID_ba__22AA2996" FromRole="bai_viet" ToRole="binh_luan" />
+        </EntityType>
+        <EntityType Name="binh_luan">
+          <Key>
+            <PropertyRef Name="ID_BL" />
+          </Key>
+          <Property Name="noi_dung_binh_luan" Type="Int32" Nullable="false" />
+          <Property Name="ID_BL" Type="Int32" Nullable="false" />
+          <Property Name="sl_Like_BL" Type="Int32" Nullable="false" />
+          <Property Name="thoi_gian_BL" Type="Int32" Nullable="false" />
+          <Property Name="ID_bai_viet" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="bai_viet" Relationship="Self.FK__binh_luan__ID_ba__22AA2996" FromRole="binh_luan" ToRole="bai_viet" />
+        </EntityType>
+        <EntityType Name="cap_bac">
+          <Key>
+            <PropertyRef Name="id_cap_bac" />
+          </Key>
+          <Property Name="id_cap_bac" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="chu_thich" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="nguoi_dung" Relationship="Self.FK__nguoi_dun__id_ca__145C0A3F" FromRole="cap_bac" ToRole="nguoi_dung" />
+        </EntityType>
+        <EntityType Name="chi_tiet">
+          <Key>
+            <PropertyRef Name="id_nguoi_dung" />
+            <PropertyRef Name="id_de_thi" />
+          </Key>
+          <Property Name="thoi_gian_nop" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="diem" Type="Double" Nullable="false" />
+          <Property Name="id_nguoi_dung" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_de_thi" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="De_Thi" Relationship="Self.FK__chi_tiet__id_de___2A4B4B5E" FromRole="chi_tiet" ToRole="De_Thi" />
+          <NavigationProperty Name="nguoi_dung" Relationship="Self.FK__chi_tiet__id_ngu__29572725" FromRole="chi_tiet" ToRole="nguoi_dung" />
+        </EntityType>
+        <EntityType Name="cuoc_thi">
+          <Key>
+            <PropertyRef Name="ID_CT" />
+          </Key>
+          <Property Name="ID_CT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tieu_de" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="the_le" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="thoi_gian_BDCT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="thoi_gian_KTCT" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="sl_nguoi_tham_gia" Type="Int32" Nullable="false" />
+          <Property Name="id_de_thi" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="De_Thi" Relationship="Self.FK__cuoc_thi__id_de___1FCDBCEB" FromRole="cuoc_thi" ToRole="De_Thi" />
+          <NavigationProperty Name="nguoi_dung" Relationship="Self.to_chuc" FromRole="cuoc_thi" ToRole="nguoi_dung" />
+        </EntityType>
+        <EntityType Name="De_Thi">
+          <Key>
+            <PropertyRef Name="id_de_thi" />
+          </Key>
+          <Property Name="id_de_thi" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="thoi_gian_lam" Type="Int32" Nullable="false" />
+          <Property Name="noi_dung_daotao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ghi_chu" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="chi_tiet" Relationship="Self.FK__chi_tiet__id_de___2A4B4B5E" FromRole="De_Thi" ToRole="chi_tiet" />
+          <NavigationProperty Name="cuoc_thi" Relationship="Self.FK__cuoc_thi__id_de___1FCDBCEB" FromRole="De_Thi" ToRole="cuoc_thi" />
+        </EntityType>
+        <EntityType Name="nguoi_dung">
+          <Key>
+            <PropertyRef Name="id_nguoi_dung" />
+          </Key>
+          <Property Name="id_nguoi_dung" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="mat_khau" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ho_ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="birthday" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="xep_hang" Type="Int32" Nullable="false" />
+          <Property Name="id_cap_bac" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="bai_giang" Relationship="Self.FK__bai_giang__id_ng__1A14E395" FromRole="nguoi_dung" ToRole="bai_giang" />
+          <NavigationProperty Name="bai_viet" Relationship="Self.FK__bai_viet__id_ngu__1CF15040" FromRole="nguoi_dung" ToRole="bai_viet" />
+          <NavigationProperty Name="cap_bac" Relationship="Self.FK__nguoi_dun__id_ca__145C0A3F" FromRole="nguoi_dung" ToRole="cap_bac" />
+          <NavigationProperty Name="chi_tiet" Relationship="Self.FK__chi_tiet__id_ngu__29572725" FromRole="nguoi_dung" ToRole="chi_tiet" />
+          <NavigationProperty Name="tai_lieu" Relationship="Self.FK__tai_lieu__id_ngu__173876EA" FromRole="nguoi_dung" ToRole="tai_lieu" />
+          <NavigationProperty Name="cuoc_thi" Relationship="Self.to_chuc" FromRole="nguoi_dung" ToRole="cuoc_thi" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tai_lieu">
+          <Key>
+            <PropertyRef Name="id_tai_lieu" />
+          </Key>
+          <Property Name="id_tai_lieu" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="noi_dung_tai_lieu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="thoi_gian_dang" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="chu_de" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="id_nguoi_dung" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="nguoi_dung" Relationship="Self.FK__tai_lieu__id_ngu__173876EA" FromRole="tai_lieu" ToRole="nguoi_dung" />
+        </EntityType>
+        <Association Name="FK__bai_giang__id_ng__1A14E395">
+          <End Role="nguoi_dung" Type="Self.nguoi_dung" Multiplicity="1" />
+          <End Role="bai_giang" Type="Self.bai_giang" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nguoi_dung">
+              <PropertyRef Name="id_nguoi_dung" />
+            </Principal>
+            <Dependent Role="bai_giang">
+              <PropertyRef Name="id_nguoi_dung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__bai_viet__id_ngu__1CF15040">
+          <End Role="nguoi_dung" Type="Self.nguoi_dung" Multiplicity="1" />
+          <End Role="bai_viet" Type="Self.bai_viet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nguoi_dung">
+              <PropertyRef Name="id_nguoi_dung" />
+            </Principal>
+            <Dependent Role="bai_viet">
+              <PropertyRef Name="id_nguoi_dung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__binh_luan__ID_ba__22AA2996">
+          <End Role="bai_viet" Type="Self.bai_viet" Multiplicity="1" />
+          <End Role="binh_luan" Type="Self.binh_luan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="bai_viet">
+              <PropertyRef Name="ID_bai_viet" />
+            </Principal>
+            <Dependent Role="binh_luan">
+              <PropertyRef Name="ID_bai_viet" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__nguoi_dun__id_ca__145C0A3F">
+          <End Role="cap_bac" Type="Self.cap_bac" Multiplicity="1" />
+          <End Role="nguoi_dung" Type="Self.nguoi_dung" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cap_bac">
+              <PropertyRef Name="id_cap_bac" />
+            </Principal>
+            <Dependent Role="nguoi_dung">
+              <PropertyRef Name="id_cap_bac" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__chi_tiet__id_de___2A4B4B5E">
+          <End Role="De_Thi" Type="Self.De_Thi" Multiplicity="1" />
+          <End Role="chi_tiet" Type="Self.chi_tiet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="De_Thi">
+              <PropertyRef Name="id_de_thi" />
+            </Principal>
+            <Dependent Role="chi_tiet">
+              <PropertyRef Name="id_de_thi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__chi_tiet__id_ngu__29572725">
+          <End Role="nguoi_dung" Type="Self.nguoi_dung" Multiplicity="1" />
+          <End Role="chi_tiet" Type="Self.chi_tiet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nguoi_dung">
+              <PropertyRef Name="id_nguoi_dung" />
+            </Principal>
+            <Dependent Role="chi_tiet">
+              <PropertyRef Name="id_nguoi_dung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__cuoc_thi__id_de___1FCDBCEB">
+          <End Role="De_Thi" Type="Self.De_Thi" Multiplicity="1" />
+          <End Role="cuoc_thi" Type="Self.cuoc_thi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="De_Thi">
+              <PropertyRef Name="id_de_thi" />
+            </Principal>
+            <Dependent Role="cuoc_thi">
+              <PropertyRef Name="id_de_thi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tai_lieu__id_ngu__173876EA">
+          <End Role="nguoi_dung" Type="Self.nguoi_dung" Multiplicity="1" />
+          <End Role="tai_lieu" Type="Self.tai_lieu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nguoi_dung">
+              <PropertyRef Name="id_nguoi_dung" />
+            </Principal>
+            <Dependent Role="tai_lieu">
+              <PropertyRef Name="id_nguoi_dung" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="to_chuc">
+          <End Role="cuoc_thi" Type="Self.cuoc_thi" Multiplicity="*" />
+          <End Role="nguoi_dung" Type="Self.nguoi_dung" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="PTTKHTEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="bai_giang" EntityType="Self.bai_giang" />
+          <EntitySet Name="bai_viet" EntityType="Self.bai_viet" />
+          <EntitySet Name="binh_luan" EntityType="Self.binh_luan" />
+          <EntitySet Name="cap_bac" EntityType="Self.cap_bac" />
+          <EntitySet Name="chi_tiet" EntityType="Self.chi_tiet" />
+          <EntitySet Name="cuoc_thi" EntityType="Self.cuoc_thi" />
+          <EntitySet Name="De_Thi" EntityType="Self.De_Thi" />
+          <EntitySet Name="nguoi_dung" EntityType="Self.nguoi_dung" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="tai_lieu" EntityType="Self.tai_lieu" />
+          <AssociationSet Name="FK__bai_giang__id_ng__1A14E395" Association="Self.FK__bai_giang__id_ng__1A14E395">
+            <End Role="nguoi_dung" EntitySet="nguoi_dung" />
+            <End Role="bai_giang" EntitySet="bai_giang" />
+          </AssociationSet>
+          <AssociationSet Name="FK__bai_viet__id_ngu__1CF15040" Association="Self.FK__bai_viet__id_ngu__1CF15040">
+            <End Role="nguoi_dung" EntitySet="nguoi_dung" />
+            <End Role="bai_viet" EntitySet="bai_viet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__binh_luan__ID_ba__22AA2996" Association="Self.FK__binh_luan__ID_ba__22AA2996">
+            <End Role="bai_viet" EntitySet="bai_viet" />
+            <End Role="binh_luan" EntitySet="binh_luan" />
+          </AssociationSet>
+          <AssociationSet Name="FK__nguoi_dun__id_ca__145C0A3F" Association="Self.FK__nguoi_dun__id_ca__145C0A3F">
+            <End Role="cap_bac" EntitySet="cap_bac" />
+            <End Role="nguoi_dung" EntitySet="nguoi_dung" />
+          </AssociationSet>
+          <AssociationSet Name="FK__chi_tiet__id_de___2A4B4B5E" Association="Self.FK__chi_tiet__id_de___2A4B4B5E">
+            <End Role="De_Thi" EntitySet="De_Thi" />
+            <End Role="chi_tiet" EntitySet="chi_tiet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__chi_tiet__id_ngu__29572725" Association="Self.FK__chi_tiet__id_ngu__29572725">
+            <End Role="nguoi_dung" EntitySet="nguoi_dung" />
+            <End Role="chi_tiet" EntitySet="chi_tiet" />
+          </AssociationSet>
+          <AssociationSet Name="FK__cuoc_thi__id_de___1FCDBCEB" Association="Self.FK__cuoc_thi__id_de___1FCDBCEB">
+            <End Role="De_Thi" EntitySet="De_Thi" />
+            <End Role="cuoc_thi" EntitySet="cuoc_thi" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tai_lieu__id_ngu__173876EA" Association="Self.FK__tai_lieu__id_ngu__173876EA">
+            <End Role="nguoi_dung" EntitySet="nguoi_dung" />
+            <End Role="tai_lieu" EntitySet="tai_lieu" />
+          </AssociationSet>
+          <AssociationSet Name="to_chuc" Association="Self.to_chuc">
+            <End Role="cuoc_thi" EntitySet="cuoc_thi" />
+            <End Role="nguoi_dung" EntitySet="nguoi_dung" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PTTKHTModelStoreContainer" CdmEntityContainer="PTTKHTEntities">
+          <EntitySetMapping Name="bai_giang">
+            <EntityTypeMapping TypeName="PTTKHTModel.bai_giang">
+              <MappingFragment StoreEntitySet="bai_giang">
+                <ScalarProperty Name="id_bai_giang" ColumnName="id_bai_giang" />
+                <ScalarProperty Name="noi_dung_bg" ColumnName="noi_dung_bg" />
+                <ScalarProperty Name="thoi_gian_bg" ColumnName="thoi_gian_bg" />
+                <ScalarProperty Name="luot_xem" ColumnName="luot_xem" />
+                <ScalarProperty Name="sl_Like_BG" ColumnName="sl_Like_BG" />
+                <ScalarProperty Name="id_nguoi_dung" ColumnName="id_nguoi_dung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bai_viet">
+            <EntityTypeMapping TypeName="PTTKHTModel.bai_viet">
+              <MappingFragment StoreEntitySet="bai_viet">
+                <ScalarProperty Name="noi_dung" ColumnName="noi_dung" />
+                <ScalarProperty Name="ID_bai_viet" ColumnName="ID_bai_viet" />
+                <ScalarProperty Name="sl_Like" ColumnName="sl_Like" />
+                <ScalarProperty Name="thoi_gian_dang_bai" ColumnName="thoi_gian_dang_bai" />
+                <ScalarProperty Name="id_nguoi_dung" ColumnName="id_nguoi_dung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="binh_luan">
+            <EntityTypeMapping TypeName="PTTKHTModel.binh_luan">
+              <MappingFragment StoreEntitySet="binh_luan">
+                <ScalarProperty Name="noi_dung_binh_luan" ColumnName="noi_dung_binh_luan" />
+                <ScalarProperty Name="ID_BL" ColumnName="ID_BL" />
+                <ScalarProperty Name="sl_Like_BL" ColumnName="sl_Like_BL" />
+                <ScalarProperty Name="thoi_gian_BL" ColumnName="thoi_gian_BL" />
+                <ScalarProperty Name="ID_bai_viet" ColumnName="ID_bai_viet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cap_bac">
+            <EntityTypeMapping TypeName="PTTKHTModel.cap_bac">
+              <MappingFragment StoreEntitySet="cap_bac">
+                <ScalarProperty Name="id_cap_bac" ColumnName="id_cap_bac" />
+                <ScalarProperty Name="chu_thich" ColumnName="chu_thich" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="chi_tiet">
+            <EntityTypeMapping TypeName="PTTKHTModel.chi_tiet">
+              <MappingFragment StoreEntitySet="chi_tiet">
+                <ScalarProperty Name="thoi_gian_nop" ColumnName="thoi_gian_nop" />
+                <ScalarProperty Name="diem" ColumnName="diem" />
+                <ScalarProperty Name="id_nguoi_dung" ColumnName="id_nguoi_dung" />
+                <ScalarProperty Name="id_de_thi" ColumnName="id_de_thi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cuoc_thi">
+            <EntityTypeMapping TypeName="PTTKHTModel.cuoc_thi">
+              <MappingFragment StoreEntitySet="cuoc_thi">
+                <ScalarProperty Name="ID_CT" ColumnName="ID_CT" />
+                <ScalarProperty Name="tieu_de" ColumnName="tieu_de" />
+                <ScalarProperty Name="the_le" ColumnName="the_le" />
+                <ScalarProperty Name="thoi_gian_BDCT" ColumnName="thoi_gian_BDCT" />
+                <ScalarProperty Name="thoi_gian_KTCT" ColumnName="thoi_gian_KTCT" />
+                <ScalarProperty Name="sl_nguoi_tham_gia" ColumnName="sl_nguoi_tham_gia" />
+                <ScalarProperty Name="id_de_thi" ColumnName="id_de_thi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="De_Thi">
+            <EntityTypeMapping TypeName="PTTKHTModel.De_Thi">
+              <MappingFragment StoreEntitySet="De_Thi">
+                <ScalarProperty Name="id_de_thi" ColumnName="id_de_thi" />
+                <ScalarProperty Name="thoi_gian_lam" ColumnName="thoi_gian_lam" />
+                <ScalarProperty Name="noi_dung_daotao" ColumnName="noi_dung_daotao" />
+                <ScalarProperty Name="ghi_chu" ColumnName="ghi_chu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nguoi_dung">
+            <EntityTypeMapping TypeName="PTTKHTModel.nguoi_dung">
+              <MappingFragment StoreEntitySet="nguoi_dung">
+                <ScalarProperty Name="id_nguoi_dung" ColumnName="id_nguoi_dung" />
+                <ScalarProperty Name="mat_khau" ColumnName="mat_khau" />
+                <ScalarProperty Name="ho_ten" ColumnName="ho_ten" />
+                <ScalarProperty Name="birthday" ColumnName="birthday" />
+                <ScalarProperty Name="xep_hang" ColumnName="xep_hang" />
+                <ScalarProperty Name="id_cap_bac" ColumnName="id_cap_bac" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="PTTKHTModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tai_lieu">
+            <EntityTypeMapping TypeName="PTTKHTModel.tai_lieu">
+              <MappingFragment StoreEntitySet="tai_lieu">
+                <ScalarProperty Name="id_tai_lieu" ColumnName="id_tai_lieu" />
+                <ScalarProperty Name="noi_dung_tai_lieu" ColumnName="noi_dung_tai_lieu" />
+                <ScalarProperty Name="thoi_gian_dang" ColumnName="thoi_gian_dang" />
+                <ScalarProperty Name="chu_de" ColumnName="chu_de" />
+                <ScalarProperty Name="id_nguoi_dung" ColumnName="id_nguoi_dung" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="to_chuc" TypeName="PTTKHTModel.to_chuc" StoreEntitySet="to_chuc">
+            <EndProperty Name="cuoc_thi">
+              <ScalarProperty Name="ID_CT" ColumnName="ID_CT" />
+            </EndProperty>
+            <EndProperty Name="nguoi_dung">
+              <ScalarProperty Name="id_nguoi_dung" ColumnName="id_nguoi_dung" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

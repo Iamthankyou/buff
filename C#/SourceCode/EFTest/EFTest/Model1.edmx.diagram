@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ebba841723034d6b835317cf8af1f799" Name="Diagram1">
+        <EntityTypeShape EntityType="PTTKHTModel.bai_giang" Width="1.5" PointX="3.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTTKHTModel.bai_viet" Width="1.5" PointX="9.5" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTTKHTModel.binh_luan" Width="1.5" PointX="11.375" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTTKHTModel.cap_bac" Width="1.5" PointX="5.875" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTTKHTModel.chi_tiet" Width="1.5" PointX="0.5" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTTKHTModel.cuoc_thi" Width="1.5" PointX="3.25" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTTKHTModel.De_Thi" Width="1.5" PointX="0.5" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTTKHTModel.nguoi_dung" Width="1.5" PointX="6.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTTKHTModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PTTKHTModel.tai_lieu" Width="1.5" PointX="8.5" PointY="12.125" IsExpanded="true" />
+        <AssociationConnector Association="PTTKHTModel.FK__bai_giang__id_ng__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="PTTKHTModel.FK__bai_viet__id_ngu__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="PTTKHTModel.FK__binh_luan__ID_ba__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="PTTKHTModel.FK__nguoi_dun__id_ca__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="PTTKHTModel.FK__chi_tiet__id_de___2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="PTTKHTModel.FK__chi_tiet__id_ngu__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="PTTKHTModel.FK__cuoc_thi__id_de___1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="PTTKHTModel.FK__tai_lieu__id_ngu__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="PTTKHTModel.to_chuc" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
