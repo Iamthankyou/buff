@@ -1,6 +1,25 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+string removeKdigits(string num, int k) {
+	   vector<char> stack;
+	   for (int i = 0; i < num.size(); i++) {
+		   while (stack.size() && k && num[i] > stack.back()) {
+			   stack.pop_back();
+			   k--;
+		   }
+		   stack.push_back(num[i]);
+	   }
+	   while (stack.size() && k) {
+		   k--;
+		   stack.pop_back();
+	   }
+	   string s(stack.begin(), stack.end());
+	   int i = 0;
+	   while (s[i] == '0') i++;
+	   return i == s.size() ? "0" : s.substr(i);
+   }
+
 int main(){
 	freopen("input.txt","r",stdin);
 	string s;
@@ -12,18 +31,7 @@ int main(){
 		int i=0;
 		int k;
 		cin >> k;
-		while (k>0 && i<s.length()-1){
-			if (s[i]<s[i+1]){
-				s = s.substr(0,i) + s.substr(i+1,s.length()-1);
-				k--;
-				i = max(0,i-1);
-			}
-			else{
-				i++;
-			}
-		}
 
-		cout << s << endl;
-		s = restore;
+		cout << removeKdigits(s, k) << "\n";
 	}
 }
