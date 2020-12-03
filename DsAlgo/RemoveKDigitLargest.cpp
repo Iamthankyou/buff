@@ -10,10 +10,12 @@ string removeKdigits(string num, int k) {
 		   }
 		   stack.push_back(num[i]);
 	   }
+
 	   while (stack.size() && k) {
 		   k--;
 		   stack.pop_back();
 	   }
+
 	   string s(stack.begin(), stack.end());
 	   int i = 0;
 	   while (s[i] == '0') i++;

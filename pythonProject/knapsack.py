@@ -3,6 +3,7 @@ import sys
 
 sys.setrecursionlimit(100000)
 
+
 MAX_N = 100
 MAX_W = 100
 N = 0
