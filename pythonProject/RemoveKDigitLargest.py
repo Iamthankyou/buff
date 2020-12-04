@@ -1,7 +1,6 @@
 from collections import deque
 
 def remove_nums(nums, k):
-    start = 1
     nums_len = len(nums)
     s = deque()
     result = ""
