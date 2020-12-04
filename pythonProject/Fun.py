@@ -22,9 +22,8 @@ if __name__ == '__main__':
         for k in top:
             if k == 'H':
                 res += (top[k] or 0)
-            elif k == 'O':
+            if k == 'O':
                 res += (top[k] or 0) * 16
-            else:
+            if k == 'C':
                 res += (top[k] or 0) * 12
         print(res)
-
