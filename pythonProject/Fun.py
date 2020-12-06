@@ -1,29 +1,33 @@
-import re
-import collections
+from  collections import deque
 if __name__ == '__main__':
-    t = int(input())
-    for _ in range(t):
-        s = input()
-        x = re.findall(r"([A-Z][a-z]*)(\d*)|(\()|(\))(\d*)",s)
-        stack = [collections.Counter()]
+    n = input()
+    m = int(input())
+    k = []
+    for i in range(m):
+        k.append(int(input()))
+    st = deque()
+    st.append(int(n[0]))
+    b =[]
+    for j in range(m):
+        for i in range(1,len(n)):
+            if k[j] == 0 and i < len(n):
+                st.append(n[i])
+            else:
+                if  k[j] != 0 and int(n[i]) > int(st[len(st)-1]):
+                    st.pop()
+                    st.append(n[i])
+                    k[j]-=1
+                else:
+                    if k[j] != 0 and int(n[i]) < int(st[len(st)-1]):
+                        st.append(n[i])
+        while (k[j]!=1):
+            st.popleft()
+            k[j]-=1
 
-        for name, m1, leftBracket, rightBracket, m2 in x:
-            if name:
-                stack[-1][name] += int(m1 or 1)
-            if leftBracket:
-                stack.append(collections.Counter())
-            if rightBracket:
-                top = stack.pop()
-                for k in top:
-                    stack[-1][k] += top[k] * int(m2 or 1)
-
-        res = 0
-        top = stack.pop()
-        for k in top:
-            if k == 'H':
-                res += (top[k] or 0)
-            if k == 'O':
-                res += (top[k] or 0) * 16
-            if k == 'C':
-                res += (top[k] or 0) * 12
-        print(res)
+        b.append(st)
+        st = deque()
+        st.append(int(n[0]))
+    for i in range(len(b)):
+        for j in range(len(b[i])):
+            print(b[i][j],end="")
+        print("")
