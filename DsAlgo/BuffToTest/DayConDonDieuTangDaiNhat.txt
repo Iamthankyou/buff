@@ -1,0 +1,17 @@
+* Ý tưởng thuật toán:
+	Duy trì dãy luôn tăng dài nhất và nhỏ nhất theo thứ tự từ điển.
+	Xét dãy tăng dài nhất LIS, phần từ A[i]
+	Nếu A[i] lớn hơn phần tử lớn nhất (phần tử đứng đầu của dãy) thì bổ sung A[i] vào LIS
+	Ngược lại, tìm vị trí mà phần tử x trong LIS lớn hơn hoặc bằng gần nhất với A[i] và thay thế nó bằng A[i]
+	
+	Tìm kiếm mất O(logN), độ phức tạp O(N*LogN)	
+* Ví dụ:
+	arr = [5,6,1,2,3]
+	Ban đầu : LIS = [] 
+	Xét 5: LIS rỗng => thêm vào LIS = [5]
+	Xét 6: 5<6 => thêm vào LIS = [5,6]
+	Xét 1: 1<6 và 1<5 => thay thế LIS = [1,6]
+	Xét 2: 2<6 và 2<6 => thay thế LIS = [1,2]
+	Xét 3: 2<3 => thêm vào LIS[1,2,3]
+	
+
