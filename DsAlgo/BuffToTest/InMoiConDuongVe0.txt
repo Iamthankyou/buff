@@ -1,0 +1,3 @@
+* Ý tưởng:
+Duyệt DFS với mảng check để đánh dấu các phần tử chưa duyệt là 0
+Duyệt trên tất cả các ước của n, ví dụ i, vậy t = (i-1)*([n/i]+1) theo đề, kiểm tra xem check[t] đã có chưa, nếu chưa có thì in ra và DFS(t)
