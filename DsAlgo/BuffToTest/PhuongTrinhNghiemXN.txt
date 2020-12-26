@@ -1,0 +1,25 @@
+ * Ý tưởng:
+ 	Dùng quay lui để giải quyết vấn đề. TRY(ans,T,N), trong đó T là tổng các số ans[0]+..ans[1]=T<=N
+ 	Chương trình dừng khi T = N
+
+	Tìm kiếm dãy ans có tổng bằng T nhỏ hơn hoặc bằng N
+	Nếu T = N:
+		In dãy kết quả
+	Ngược lại:
+		Chạy vòng lặp t từ phần tử cuối của dãy ans (để tránh trùng lặp) đến N-T+1 (khoảng giá trị để cộng lại bằng N)
+		Thêm t vào ans, tìm kiếm dãy ans có tổng bằng T+t nhỏ hơn hoặc bằng N
+	
+ * Trình bày:
+ Giả sử TRY([],0,3)
+ Vì 0<3:
+ 	Thực hiện : TRY([1],1,3), TRY([1],2,3), TRY([1],3,3)
+ 	TRY([1],1,3):
+ 	1<3:Thực hiện TRY([1,1],2,3)
+ 		2<4, thực hiện TRY([1,1,1],3,3)
+ 		3=3, in kết quả
+ 	TRY([1],2,3):
+ 	2<3: Thực hiện TRY[1,2],3,3)
+ 		3=3, in kết quả
+ 	TRY([1],3,3)
+ 	3=3, in kết quả
+ 		

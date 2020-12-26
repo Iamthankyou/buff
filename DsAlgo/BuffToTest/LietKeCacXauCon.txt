@@ -1,0 +1,9 @@
+* Ý tưởng:
+Tạo một set để lưu các phần tử không trùng nhau
+Ban đầu thêm chính xâu s vào set. Sau đó lần lượt loại bỏ từng phần tử đầu, và cuối của xâu đi sẽ được xâu mới cho đến khi còn 1 phần tử.
+
+* Tính toán:
+s = "abc"
+set = "abc"
+Xét ab, chưa có trong set, thêm vào set, xét a, chưa có trong set, thêm vào set = "abc", "ab", "a"
+Xét bc, thêm vào set, xét c, thêm vào set = "abc", "ab", "a", "bc", "c"
