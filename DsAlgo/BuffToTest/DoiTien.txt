@@ -1,0 +1,25 @@
+* Ý tưởng:
+	Thuật toán quay lui (backtracking)
+	Giả sử có dãy n tiền arr, dãy kết quả ans hệ số mỗi phần tử là i, ta cần tìm sao cho tổng các hệ số này là nhỏ nhất
+	Thuật toán quay lui:
+	TRY(ans,k,T) giả sử đã có x[0]->x[k] tờ tiền được chọn trong số x[0] đến x[n], T là tổng của các tờ tiền được chọn 
+		Nếu k == n-1, tức chỉ còn tờ cuối x[n] chưa được xét
+			Nếu (N-T) là số tiền còn thiếu chia hết cho tờ tiền cuối cùng x[n], tức có thể đổi được:
+				Ta sẽ xét xem nó có phải nhỏ nhất không để cập nhật lại min
+		Còn lại:
+			Chạy t trong đoạn [0,(N-T)/x[k]+1] (số lần có thể đổi của tờ x[k])
+				TRY(ans+[t],k+1,T+i*x[k])
+
+* Mô tả:
+	Giả sử có 3 tờ tiền: 4 6 3, số tiền cần đổi là 6
+	TRY([],0,0)
+	0 != 3-1
+		TRY([0],1,6), TRY([1],1,2)
+			TRY([0],1,6)
+			1!=3-1
+				TRY([0,0],6), TRY([0,1],6)
+				TRY([0,0],6)
+				2 = 3-1
+				6-6=0 % 2=0
+				=> Cập nhật min 
+				
