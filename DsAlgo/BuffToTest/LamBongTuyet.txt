@@ -1,0 +1,26 @@
+* Ý tưởng:
+	Thuật toán tham lam
+	Tạo một hàng đợi ưu tiên để ghi lại các bóng tuyết chưa tan hết
+	s là tổng lượng tuyết đã tan của các phần tử trong hàng đợi đến thời điểm đang xét
+	Duyệt lần lượt cặp giá trị (v,t), ta thêm vào hàng đợi (v+s), coi như nó đã tan s cho giống với các phần tử trước trong hàng đợi.
+	Giờ chỉ cần xét điều kiện một chút.
+* Mô tả:
+
+10 10 5
+5 7 2
+
+z = 0
+Q = 10
+s = 5
+z = 5
+
+Q = 10 15
+10-5=5<=5 => s=5
+Q = 15 
+s = 12
+z = 12
+
+Q = 15 17
+s = 2*2 = 4
+z = 12+2=14
+
