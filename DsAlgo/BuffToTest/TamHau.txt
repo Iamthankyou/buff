@@ -1,0 +1,10 @@
+* Ý tưởng:
+	Dùng quay lui.
+	TRY(ans,k) với ans là một ma trận phần tử thứ i có giá trị x là vị trí quân Hậu, k là số cột mà đang xét
+	Khi độ dài ma trận = N, in ra kết quả
+	Ngược lại, thử điền vào cột k, từ dòng [1,8], nếu không trùng hàng, cột, đường chéo thì thử đến cột k+1
+* Mô tả:
+Với N = 4
+TRY([],1)
+	TRY([1]	
+		
