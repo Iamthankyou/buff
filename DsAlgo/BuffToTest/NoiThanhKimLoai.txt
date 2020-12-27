@@ -1,0 +1,8 @@
+* Ý tưởng:
+	Dùng hàng đợi ưu tiên theo gía trị nhỏ nhất.
+	Khi còn 2 thanh trong hàng đợi thì nối 2 thanh nhỏ nhất vào với nhau, rồi thêm thanh vừa nối vào hàng đợi.
+* Mô tả:
+	8 4 6
+	pq = 4,6,8
+	Nối ans = 4+6 = 10, pq = 8,10
+	Nối ans = 28, pq = 0
