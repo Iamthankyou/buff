@@ -1,0 +1,16 @@
+* Ý tưởng:
+	Thuật toán tham lam
+	Sắp xếp các cạnh theo thứ tự tăng dần trọng số.
+	Lần lượt duyệt trên danh sách cạnh, nếu đỉnh u và đỉnh v cùng gốc tức nó đã được kết nối với nhau rồi, bỏ qua, ngược lại thêm vào.
+	Cấu trúc dữ liệu liên quan: Union Find
+	
+* Mô tả:
+4 6
+1 2 5
+1 3 3
+4 1 6
+2 4 7
+3 2 4
+3 4 5
+
+
