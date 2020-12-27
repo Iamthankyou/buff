@@ -1,0 +1,26 @@
+* Ý tưởng:
+	Dùng quay lui, mỗi lần lấy ra một phần tử trong tập được chọn rồi tiếp tục thực hiện quay lui cho đến khi lấy ra đủ N phần tử.
+	
+	Khởi tạo: D, là một từ điển đếm số lần xuất hiện của các phần tử trong S
+	TRY([]) với ans là tập kết quả
+		Nếu len(ans) = len(s) : In kết quả
+		Ngược lại:
+			Duyệt i lần lượt các khóa trên tập D:
+				Nếu D[i]>0 (tức vẫn còn phần tử i trong dãy ban đầu):
+					D[i]-=1
+					Thực hiện TRY([i])
+					Sau khi thực hiện xong, trả lại 
+					D[i]+=1
+	
+* Mô tả:
+	Với s = aab, D = {a:2,b:1}
+	TRY([])
+	Với tập D, ta thử TRY([a]), TRY([b])
+	TRY([a]) với tập D = {a:1,b:1}
+		Thử TRY([a,a]) với D = {b:1}
+			Thử TRY([a,a,b], in ra a,a,b
+		Thử TRY([a,b]) với D = {a:1}
+			Thử TRY([a,b,a], in ra a,b,a
+	TRY[b] với D ={a:2}
+		Thử TRY([b,a]) với D = {a:1}
+			TRY([b,a,a]), in ra b,a,a
