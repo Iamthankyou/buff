@@ -1,0 +1,13 @@
+* Ý tưởng:
+	Dùng tham lam, sắp xếp kích thước búp bê giảm dần
+	Gọi một hàng đợi Q giữ những con búp bê còn có thể nuốt con búp bê khác
+	Duyệt trên dãy đã sắp xếp, nếu búp bê i + k <= phần tử đầu tiên của hàng đợi, tức nuốt được thì pop hàng đợi
+	Thêm phần tử i vào hàng đợi
+* Mô tả:
+3 2
+4 1 1
+
+Xét 4, Q = 4
+Xét 1, 1+2 < 4, lấy 4, thêm 1: Q = 1
+Xét 1, 1+2 > 1, thêm 1, Q = 1,1
+
