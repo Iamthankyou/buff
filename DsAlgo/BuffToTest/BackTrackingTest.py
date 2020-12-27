@@ -1,9 +1,18 @@
-def TRY(ans,T,n):
-    if T==n:
-        print(n," = ",end=' ')
-        print(*ans[1:],sep="+")
-    else:
-        for t in range(ans[-1],n-T+1):
-            TRY(ans+[t],T+t,n)
+class event:
+    def __init__(self,u=0,v=0):
+        self.start,self.finish=u,v
 if __name__ == '__main__':
-    TRY([1],0,5)
+    n=int(input())
+    E=[]
+    for _ in range(n):
+        u,v=map(int,input().split())
+        E.append(event(u,v))
+
+    E.sort(key= lambda x: x.finish) #sap xep tang dan
+    time=E[0].start-1
+    counter=0
+    for e in E:
+        if e.start>time:
+            counter+=1
+            time=e.finish
+    print("The number event is organised ",counter)
